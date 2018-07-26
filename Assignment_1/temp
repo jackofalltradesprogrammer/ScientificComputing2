@@ -1,0 +1,2273 @@
+netcdf wrfout_d01_2017-09-10_18\:00\:00 {
+dimensions:
+	Time = UNLIMITED ; // (1 currently)
+	DateStrLen = 19 ;
+	west_east = 97 ;
+	south_north = 69 ;
+	bottom_top = 50 ;
+	bottom_top_stag = 51 ;
+	soil_layers_stag = 4 ;
+	west_east_stag = 98 ;
+	south_north_stag = 70 ;
+variables:
+	char Times(Time, DateStrLen) ;
+	float XLAT(Time, south_north, west_east) ;
+		XLAT:FieldType = 104 ;
+		XLAT:MemoryOrder = "XY " ;
+		XLAT:description = "LATITUDE, SOUTH IS NEGATIVE" ;
+		XLAT:units = "degree_north" ;
+		XLAT:stagger = "" ;
+		XLAT:coordinates = "XLONG XLAT" ;
+	float XLONG(Time, south_north, west_east) ;
+		XLONG:FieldType = 104 ;
+		XLONG:MemoryOrder = "XY " ;
+		XLONG:description = "LONGITUDE, WEST IS NEGATIVE" ;
+		XLONG:units = "degree_east" ;
+		XLONG:stagger = "" ;
+		XLONG:coordinates = "XLONG XLAT" ;
+	float LU_INDEX(Time, south_north, west_east) ;
+		LU_INDEX:FieldType = 104 ;
+		LU_INDEX:MemoryOrder = "XY " ;
+		LU_INDEX:description = "LAND USE CATEGORY" ;
+		LU_INDEX:units = "" ;
+		LU_INDEX:stagger = "" ;
+		LU_INDEX:coordinates = "XLONG XLAT XTIME" ;
+	float ZNU(Time, bottom_top) ;
+		ZNU:FieldType = 104 ;
+		ZNU:MemoryOrder = "Z  " ;
+		ZNU:description = "eta values on half (mass) levels" ;
+		ZNU:units = "" ;
+		ZNU:stagger = "" ;
+	float ZNW(Time, bottom_top_stag) ;
+		ZNW:FieldType = 104 ;
+		ZNW:MemoryOrder = "Z  " ;
+		ZNW:description = "eta values on full (w) levels" ;
+		ZNW:units = "" ;
+		ZNW:stagger = "Z" ;
+	float ZS(Time, soil_layers_stag) ;
+		ZS:FieldType = 104 ;
+		ZS:MemoryOrder = "Z  " ;
+		ZS:description = "DEPTHS OF CENTERS OF SOIL LAYERS" ;
+		ZS:units = "m" ;
+		ZS:stagger = "Z" ;
+	float DZS(Time, soil_layers_stag) ;
+		DZS:FieldType = 104 ;
+		DZS:MemoryOrder = "Z  " ;
+		DZS:description = "THICKNESSES OF SOIL LAYERS" ;
+		DZS:units = "m" ;
+		DZS:stagger = "Z" ;
+	float VAR_SSO(Time, south_north, west_east) ;
+		VAR_SSO:FieldType = 104 ;
+		VAR_SSO:MemoryOrder = "XY " ;
+		VAR_SSO:description = "variance of subgrid-scale orography" ;
+		VAR_SSO:units = "m2" ;
+		VAR_SSO:stagger = "" ;
+		VAR_SSO:coordinates = "XLONG XLAT XTIME" ;
+	float U(Time, bottom_top, south_north, west_east_stag) ;
+		U:FieldType = 104 ;
+		U:MemoryOrder = "XYZ" ;
+		U:description = "x-wind component" ;
+		U:units = "m s-1" ;
+		U:stagger = "X" ;
+		U:coordinates = "XLONG_U XLAT_U XTIME" ;
+	float V(Time, bottom_top, south_north_stag, west_east) ;
+		V:FieldType = 104 ;
+		V:MemoryOrder = "XYZ" ;
+		V:description = "y-wind component" ;
+		V:units = "m s-1" ;
+		V:stagger = "Y" ;
+		V:coordinates = "XLONG_V XLAT_V XTIME" ;
+	float W(Time, bottom_top_stag, south_north, west_east) ;
+		W:FieldType = 104 ;
+		W:MemoryOrder = "XYZ" ;
+		W:description = "z-wind component" ;
+		W:units = "m s-1" ;
+		W:stagger = "Z" ;
+		W:coordinates = "XLONG XLAT XTIME" ;
+	float PH(Time, bottom_top_stag, south_north, west_east) ;
+		PH:FieldType = 104 ;
+		PH:MemoryOrder = "XYZ" ;
+		PH:description = "perturbation geopotential" ;
+		PH:units = "m2 s-2" ;
+		PH:stagger = "Z" ;
+		PH:coordinates = "XLONG XLAT XTIME" ;
+	float PHB(Time, bottom_top_stag, south_north, west_east) ;
+		PHB:FieldType = 104 ;
+		PHB:MemoryOrder = "XYZ" ;
+		PHB:description = "base-state geopotential" ;
+		PHB:units = "m2 s-2" ;
+		PHB:stagger = "Z" ;
+		PHB:coordinates = "XLONG XLAT XTIME" ;
+	float T(Time, bottom_top, south_north, west_east) ;
+		T:FieldType = 104 ;
+		T:MemoryOrder = "XYZ" ;
+		T:description = "perturbation potential temperature (theta-t0)" ;
+		T:units = "K" ;
+		T:stagger = "" ;
+		T:coordinates = "XLONG XLAT XTIME" ;
+	float HFX_FORCE(Time) ;
+		HFX_FORCE:FieldType = 104 ;
+		HFX_FORCE:MemoryOrder = "0  " ;
+		HFX_FORCE:description = "SCM ideal surface sensible heat flux" ;
+		HFX_FORCE:units = "W m-2" ;
+		HFX_FORCE:stagger = "" ;
+	float LH_FORCE(Time) ;
+		LH_FORCE:FieldType = 104 ;
+		LH_FORCE:MemoryOrder = "0  " ;
+		LH_FORCE:description = "SCM ideal surface latent heat flux" ;
+		LH_FORCE:units = "W m-2" ;
+		LH_FORCE:stagger = "" ;
+	float TSK_FORCE(Time) ;
+		TSK_FORCE:FieldType = 104 ;
+		TSK_FORCE:MemoryOrder = "0  " ;
+		TSK_FORCE:description = "SCM ideal surface skin temperature" ;
+		TSK_FORCE:units = "W m-2" ;
+		TSK_FORCE:stagger = "" ;
+	float HFX_FORCE_TEND(Time) ;
+		HFX_FORCE_TEND:FieldType = 104 ;
+		HFX_FORCE_TEND:MemoryOrder = "0  " ;
+		HFX_FORCE_TEND:description = "SCM ideal surface sensible heat flux tendency" ;
+		HFX_FORCE_TEND:units = "W m-2 s-1" ;
+		HFX_FORCE_TEND:stagger = "" ;
+	float LH_FORCE_TEND(Time) ;
+		LH_FORCE_TEND:FieldType = 104 ;
+		LH_FORCE_TEND:MemoryOrder = "0  " ;
+		LH_FORCE_TEND:description = "SCM ideal surface latent heat flux tendency" ;
+		LH_FORCE_TEND:units = "W m-2 s-1" ;
+		LH_FORCE_TEND:stagger = "" ;
+	float TSK_FORCE_TEND(Time) ;
+		TSK_FORCE_TEND:FieldType = 104 ;
+		TSK_FORCE_TEND:MemoryOrder = "0  " ;
+		TSK_FORCE_TEND:description = "SCM ideal surface skin temperature tendency" ;
+		TSK_FORCE_TEND:units = "W m-2 s-1" ;
+		TSK_FORCE_TEND:stagger = "" ;
+	float MU(Time, south_north, west_east) ;
+		MU:FieldType = 104 ;
+		MU:MemoryOrder = "XY " ;
+		MU:description = "perturbation dry air mass in column" ;
+		MU:units = "Pa" ;
+		MU:stagger = "" ;
+		MU:coordinates = "XLONG XLAT XTIME" ;
+	float MUB(Time, south_north, west_east) ;
+		MUB:FieldType = 104 ;
+		MUB:MemoryOrder = "XY " ;
+		MUB:description = "base state dry air mass in column" ;
+		MUB:units = "Pa" ;
+		MUB:stagger = "" ;
+		MUB:coordinates = "XLONG XLAT XTIME" ;
+	float NEST_POS(Time, south_north, west_east) ;
+		NEST_POS:FieldType = 104 ;
+		NEST_POS:MemoryOrder = "XY " ;
+		NEST_POS:description = "-" ;
+		NEST_POS:units = "-" ;
+		NEST_POS:stagger = "" ;
+		NEST_POS:coordinates = "XLONG XLAT XTIME" ;
+	float P(Time, bottom_top, south_north, west_east) ;
+		P:FieldType = 104 ;
+		P:MemoryOrder = "XYZ" ;
+		P:description = "perturbation pressure" ;
+		P:units = "Pa" ;
+		P:stagger = "" ;
+		P:coordinates = "XLONG XLAT XTIME" ;
+	float PB(Time, bottom_top, south_north, west_east) ;
+		PB:FieldType = 104 ;
+		PB:MemoryOrder = "XYZ" ;
+		PB:description = "BASE STATE PRESSURE" ;
+		PB:units = "Pa" ;
+		PB:stagger = "" ;
+		PB:coordinates = "XLONG XLAT XTIME" ;
+	float FNM(Time, bottom_top) ;
+		FNM:FieldType = 104 ;
+		FNM:MemoryOrder = "Z  " ;
+		FNM:description = "upper weight for vertical stretching" ;
+		FNM:units = "" ;
+		FNM:stagger = "" ;
+	float FNP(Time, bottom_top) ;
+		FNP:FieldType = 104 ;
+		FNP:MemoryOrder = "Z  " ;
+		FNP:description = "lower weight for vertical stretching" ;
+		FNP:units = "" ;
+		FNP:stagger = "" ;
+	float RDNW(Time, bottom_top) ;
+		RDNW:FieldType = 104 ;
+		RDNW:MemoryOrder = "Z  " ;
+		RDNW:description = "inverse d(eta) values between full (w) levels" ;
+		RDNW:units = "" ;
+		RDNW:stagger = "" ;
+	float RDN(Time, bottom_top) ;
+		RDN:FieldType = 104 ;
+		RDN:MemoryOrder = "Z  " ;
+		RDN:description = "inverse d(eta) values between half (mass) levels" ;
+		RDN:units = "" ;
+		RDN:stagger = "" ;
+	float DNW(Time, bottom_top) ;
+		DNW:FieldType = 104 ;
+		DNW:MemoryOrder = "Z  " ;
+		DNW:description = "d(eta) values between full (w) levels" ;
+		DNW:units = "" ;
+		DNW:stagger = "" ;
+	float DN(Time, bottom_top) ;
+		DN:FieldType = 104 ;
+		DN:MemoryOrder = "Z  " ;
+		DN:description = "d(eta) values between half (mass) levels" ;
+		DN:units = "" ;
+		DN:stagger = "" ;
+	float CFN(Time) ;
+		CFN:FieldType = 104 ;
+		CFN:MemoryOrder = "0  " ;
+		CFN:description = "extrapolation constant" ;
+		CFN:units = "" ;
+		CFN:stagger = "" ;
+	float CFN1(Time) ;
+		CFN1:FieldType = 104 ;
+		CFN1:MemoryOrder = "0  " ;
+		CFN1:description = "extrapolation constant" ;
+		CFN1:units = "" ;
+		CFN1:stagger = "" ;
+	int THIS_IS_AN_IDEAL_RUN(Time) ;
+		THIS_IS_AN_IDEAL_RUN:FieldType = 106 ;
+		THIS_IS_AN_IDEAL_RUN:MemoryOrder = "0  " ;
+		THIS_IS_AN_IDEAL_RUN:description = "T/F flag: this is an ARW ideal simulation" ;
+		THIS_IS_AN_IDEAL_RUN:units = "-" ;
+		THIS_IS_AN_IDEAL_RUN:stagger = "" ;
+	float P_HYD(Time, bottom_top, south_north, west_east) ;
+		P_HYD:FieldType = 104 ;
+		P_HYD:MemoryOrder = "XYZ" ;
+		P_HYD:description = "hydrostatic pressure" ;
+		P_HYD:units = "Pa" ;
+		P_HYD:stagger = "" ;
+		P_HYD:coordinates = "XLONG XLAT XTIME" ;
+	float Q2(Time, south_north, west_east) ;
+		Q2:FieldType = 104 ;
+		Q2:MemoryOrder = "XY " ;
+		Q2:description = "QV at 2 M" ;
+		Q2:units = "kg kg-1" ;
+		Q2:stagger = "" ;
+		Q2:coordinates = "XLONG XLAT XTIME" ;
+	float T2(Time, south_north, west_east) ;
+		T2:FieldType = 104 ;
+		T2:MemoryOrder = "XY " ;
+		T2:description = "TEMP at 2 M" ;
+		T2:units = "K" ;
+		T2:stagger = "" ;
+		T2:coordinates = "XLONG XLAT XTIME" ;
+	float TH2(Time, south_north, west_east) ;
+		TH2:FieldType = 104 ;
+		TH2:MemoryOrder = "XY " ;
+		TH2:description = "POT TEMP at 2 M" ;
+		TH2:units = "K" ;
+		TH2:stagger = "" ;
+		TH2:coordinates = "XLONG XLAT XTIME" ;
+	float PSFC(Time, south_north, west_east) ;
+		PSFC:FieldType = 104 ;
+		PSFC:MemoryOrder = "XY " ;
+		PSFC:description = "SFC PRESSURE" ;
+		PSFC:units = "Pa" ;
+		PSFC:stagger = "" ;
+		PSFC:coordinates = "XLONG XLAT XTIME" ;
+	float U10(Time, south_north, west_east) ;
+		U10:FieldType = 104 ;
+		U10:MemoryOrder = "XY " ;
+		U10:description = "U at 10 M" ;
+		U10:units = "m s-1" ;
+		U10:stagger = "" ;
+		U10:coordinates = "XLONG XLAT XTIME" ;
+	float V10(Time, south_north, west_east) ;
+		V10:FieldType = 104 ;
+		V10:MemoryOrder = "XY " ;
+		V10:description = "V at 10 M" ;
+		V10:units = "m s-1" ;
+		V10:stagger = "" ;
+		V10:coordinates = "XLONG XLAT XTIME" ;
+	float RDX(Time) ;
+		RDX:FieldType = 104 ;
+		RDX:MemoryOrder = "0  " ;
+		RDX:description = "INVERSE X GRID LENGTH" ;
+		RDX:units = "" ;
+		RDX:stagger = "" ;
+	float RDY(Time) ;
+		RDY:FieldType = 104 ;
+		RDY:MemoryOrder = "0  " ;
+		RDY:description = "INVERSE Y GRID LENGTH" ;
+		RDY:units = "" ;
+		RDY:stagger = "" ;
+	float RESM(Time) ;
+		RESM:FieldType = 104 ;
+		RESM:MemoryOrder = "0  " ;
+		RESM:description = "TIME WEIGHT CONSTANT FOR SMALL STEPS" ;
+		RESM:units = "" ;
+		RESM:stagger = "" ;
+	float ZETATOP(Time) ;
+		ZETATOP:FieldType = 104 ;
+		ZETATOP:MemoryOrder = "0  " ;
+		ZETATOP:description = "ZETA AT MODEL TOP" ;
+		ZETATOP:units = "" ;
+		ZETATOP:stagger = "" ;
+	float CF1(Time) ;
+		CF1:FieldType = 104 ;
+		CF1:MemoryOrder = "0  " ;
+		CF1:description = "2nd order extrapolation constant" ;
+		CF1:units = "" ;
+		CF1:stagger = "" ;
+	float CF2(Time) ;
+		CF2:FieldType = 104 ;
+		CF2:MemoryOrder = "0  " ;
+		CF2:description = "2nd order extrapolation constant" ;
+		CF2:units = "" ;
+		CF2:stagger = "" ;
+	float CF3(Time) ;
+		CF3:FieldType = 104 ;
+		CF3:MemoryOrder = "0  " ;
+		CF3:description = "2nd order extrapolation constant" ;
+		CF3:units = "" ;
+		CF3:stagger = "" ;
+	int ITIMESTEP(Time) ;
+		ITIMESTEP:FieldType = 106 ;
+		ITIMESTEP:MemoryOrder = "0  " ;
+		ITIMESTEP:description = "" ;
+		ITIMESTEP:units = "" ;
+		ITIMESTEP:stagger = "" ;
+	float XTIME(Time) ;
+		XTIME:FieldType = 104 ;
+		XTIME:MemoryOrder = "0  " ;
+		XTIME:description = "minutes since 2017-09-07 12:00:00" ;
+		XTIME:units = "minutes since 2017-09-07 12:00:00" ;
+		XTIME:stagger = "" ;
+	float QVAPOR(Time, bottom_top, south_north, west_east) ;
+		QVAPOR:FieldType = 104 ;
+		QVAPOR:MemoryOrder = "XYZ" ;
+		QVAPOR:description = "Water vapor mixing ratio" ;
+		QVAPOR:units = "kg kg-1" ;
+		QVAPOR:stagger = "" ;
+		QVAPOR:coordinates = "XLONG XLAT XTIME" ;
+	float QCLOUD(Time, bottom_top, south_north, west_east) ;
+		QCLOUD:FieldType = 104 ;
+		QCLOUD:MemoryOrder = "XYZ" ;
+		QCLOUD:description = "Cloud water mixing ratio" ;
+		QCLOUD:units = "kg kg-1" ;
+		QCLOUD:stagger = "" ;
+		QCLOUD:coordinates = "XLONG XLAT XTIME" ;
+	float QRAIN(Time, bottom_top, south_north, west_east) ;
+		QRAIN:FieldType = 104 ;
+		QRAIN:MemoryOrder = "XYZ" ;
+		QRAIN:description = "Rain water mixing ratio" ;
+		QRAIN:units = "kg kg-1" ;
+		QRAIN:stagger = "" ;
+		QRAIN:coordinates = "XLONG XLAT XTIME" ;
+	float SHDMAX(Time, south_north, west_east) ;
+		SHDMAX:FieldType = 104 ;
+		SHDMAX:MemoryOrder = "XY " ;
+		SHDMAX:description = "ANNUAL MAX VEG FRACTION" ;
+		SHDMAX:units = "" ;
+		SHDMAX:stagger = "" ;
+		SHDMAX:coordinates = "XLONG XLAT XTIME" ;
+	float SHDMIN(Time, south_north, west_east) ;
+		SHDMIN:FieldType = 104 ;
+		SHDMIN:MemoryOrder = "XY " ;
+		SHDMIN:description = "ANNUAL MIN VEG FRACTION" ;
+		SHDMIN:units = "" ;
+		SHDMIN:stagger = "" ;
+		SHDMIN:coordinates = "XLONG XLAT XTIME" ;
+	float SNOALB(Time, south_north, west_east) ;
+		SNOALB:FieldType = 104 ;
+		SNOALB:MemoryOrder = "XY " ;
+		SNOALB:description = "ANNUAL MAX SNOW ALBEDO IN FRACTION" ;
+		SNOALB:units = "" ;
+		SNOALB:stagger = "" ;
+		SNOALB:coordinates = "XLONG XLAT XTIME" ;
+	float TSLB(Time, soil_layers_stag, south_north, west_east) ;
+		TSLB:FieldType = 104 ;
+		TSLB:MemoryOrder = "XYZ" ;
+		TSLB:description = "SOIL TEMPERATURE" ;
+		TSLB:units = "K" ;
+		TSLB:stagger = "Z" ;
+		TSLB:coordinates = "XLONG XLAT XTIME" ;
+	float SMOIS(Time, soil_layers_stag, south_north, west_east) ;
+		SMOIS:FieldType = 104 ;
+		SMOIS:MemoryOrder = "XYZ" ;
+		SMOIS:description = "SOIL MOISTURE" ;
+		SMOIS:units = "m3 m-3" ;
+		SMOIS:stagger = "Z" ;
+		SMOIS:coordinates = "XLONG XLAT XTIME" ;
+	float SH2O(Time, soil_layers_stag, south_north, west_east) ;
+		SH2O:FieldType = 104 ;
+		SH2O:MemoryOrder = "XYZ" ;
+		SH2O:description = "SOIL LIQUID WATER" ;
+		SH2O:units = "m3 m-3" ;
+		SH2O:stagger = "Z" ;
+		SH2O:coordinates = "XLONG XLAT XTIME" ;
+	float SMCREL(Time, soil_layers_stag, south_north, west_east) ;
+		SMCREL:FieldType = 104 ;
+		SMCREL:MemoryOrder = "XYZ" ;
+		SMCREL:description = "RELATIVE SOIL MOISTURE" ;
+		SMCREL:units = "" ;
+		SMCREL:stagger = "Z" ;
+		SMCREL:coordinates = "XLONG XLAT XTIME" ;
+	float SEAICE(Time, south_north, west_east) ;
+		SEAICE:FieldType = 104 ;
+		SEAICE:MemoryOrder = "XY " ;
+		SEAICE:description = "SEA ICE FLAG" ;
+		SEAICE:units = "" ;
+		SEAICE:stagger = "" ;
+		SEAICE:coordinates = "XLONG XLAT XTIME" ;
+	float XICEM(Time, south_north, west_east) ;
+		XICEM:FieldType = 104 ;
+		XICEM:MemoryOrder = "XY " ;
+		XICEM:description = "SEA ICE FLAG (PREVIOUS STEP)" ;
+		XICEM:units = "" ;
+		XICEM:stagger = "" ;
+		XICEM:coordinates = "XLONG XLAT XTIME" ;
+	float SFROFF(Time, south_north, west_east) ;
+		SFROFF:FieldType = 104 ;
+		SFROFF:MemoryOrder = "XY " ;
+		SFROFF:description = "SURFACE RUNOFF" ;
+		SFROFF:units = "mm" ;
+		SFROFF:stagger = "" ;
+		SFROFF:coordinates = "XLONG XLAT XTIME" ;
+	float UDROFF(Time, south_north, west_east) ;
+		UDROFF:FieldType = 104 ;
+		UDROFF:MemoryOrder = "XY " ;
+		UDROFF:description = "UNDERGROUND RUNOFF" ;
+		UDROFF:units = "mm" ;
+		UDROFF:stagger = "" ;
+		UDROFF:coordinates = "XLONG XLAT XTIME" ;
+	int IVGTYP(Time, south_north, west_east) ;
+		IVGTYP:FieldType = 106 ;
+		IVGTYP:MemoryOrder = "XY " ;
+		IVGTYP:description = "DOMINANT VEGETATION CATEGORY" ;
+		IVGTYP:units = "" ;
+		IVGTYP:stagger = "" ;
+		IVGTYP:coordinates = "XLONG XLAT XTIME" ;
+	int ISLTYP(Time, south_north, west_east) ;
+		ISLTYP:FieldType = 106 ;
+		ISLTYP:MemoryOrder = "XY " ;
+		ISLTYP:description = "DOMINANT SOIL CATEGORY" ;
+		ISLTYP:units = "" ;
+		ISLTYP:stagger = "" ;
+		ISLTYP:coordinates = "XLONG XLAT XTIME" ;
+	float VEGFRA(Time, south_north, west_east) ;
+		VEGFRA:FieldType = 104 ;
+		VEGFRA:MemoryOrder = "XY " ;
+		VEGFRA:description = "VEGETATION FRACTION" ;
+		VEGFRA:units = "" ;
+		VEGFRA:stagger = "" ;
+		VEGFRA:coordinates = "XLONG XLAT XTIME" ;
+	float GRDFLX(Time, south_north, west_east) ;
+		GRDFLX:FieldType = 104 ;
+		GRDFLX:MemoryOrder = "XY " ;
+		GRDFLX:description = "GROUND HEAT FLUX" ;
+		GRDFLX:units = "W m-2" ;
+		GRDFLX:stagger = "" ;
+		GRDFLX:coordinates = "XLONG XLAT XTIME" ;
+	float ACGRDFLX(Time, south_north, west_east) ;
+		ACGRDFLX:FieldType = 104 ;
+		ACGRDFLX:MemoryOrder = "XY " ;
+		ACGRDFLX:description = "ACCUMULATED GROUND HEAT FLUX" ;
+		ACGRDFLX:units = "J m-2" ;
+		ACGRDFLX:stagger = "" ;
+		ACGRDFLX:coordinates = "XLONG XLAT XTIME" ;
+	float ACSNOM(Time, south_north, west_east) ;
+		ACSNOM:FieldType = 104 ;
+		ACSNOM:MemoryOrder = "XY " ;
+		ACSNOM:description = "ACCUMULATED MELTED SNOW" ;
+		ACSNOM:units = "kg m-2" ;
+		ACSNOM:stagger = "" ;
+		ACSNOM:coordinates = "XLONG XLAT XTIME" ;
+	float SNOW(Time, south_north, west_east) ;
+		SNOW:FieldType = 104 ;
+		SNOW:MemoryOrder = "XY " ;
+		SNOW:description = "SNOW WATER EQUIVALENT" ;
+		SNOW:units = "kg m-2" ;
+		SNOW:stagger = "" ;
+		SNOW:coordinates = "XLONG XLAT XTIME" ;
+	float SNOWH(Time, south_north, west_east) ;
+		SNOWH:FieldType = 104 ;
+		SNOWH:MemoryOrder = "XY " ;
+		SNOWH:description = "PHYSICAL SNOW DEPTH" ;
+		SNOWH:units = "m" ;
+		SNOWH:stagger = "" ;
+		SNOWH:coordinates = "XLONG XLAT XTIME" ;
+	float CANWAT(Time, south_north, west_east) ;
+		CANWAT:FieldType = 104 ;
+		CANWAT:MemoryOrder = "XY " ;
+		CANWAT:description = "CANOPY WATER" ;
+		CANWAT:units = "kg m-2" ;
+		CANWAT:stagger = "" ;
+		CANWAT:coordinates = "XLONG XLAT XTIME" ;
+	float SSTSK(Time, south_north, west_east) ;
+		SSTSK:FieldType = 104 ;
+		SSTSK:MemoryOrder = "XY " ;
+		SSTSK:description = "SKIN SEA SURFACE TEMPERATURE" ;
+		SSTSK:units = "K" ;
+		SSTSK:stagger = "" ;
+		SSTSK:coordinates = "XLONG XLAT XTIME" ;
+	float COSZEN(Time, south_north, west_east) ;
+		COSZEN:FieldType = 104 ;
+		COSZEN:MemoryOrder = "XY " ;
+		COSZEN:description = "COS of SOLAR ZENITH ANGLE" ;
+		COSZEN:units = "dimensionless" ;
+		COSZEN:stagger = "" ;
+		COSZEN:coordinates = "XLONG XLAT XTIME" ;
+	float LAI(Time, south_north, west_east) ;
+		LAI:FieldType = 104 ;
+		LAI:MemoryOrder = "XY " ;
+		LAI:description = "LEAF AREA INDEX" ;
+		LAI:units = "m-2/m-2" ;
+		LAI:stagger = "" ;
+		LAI:coordinates = "XLONG XLAT XTIME" ;
+	float VAR(Time, south_north, west_east) ;
+		VAR:FieldType = 104 ;
+		VAR:MemoryOrder = "XY " ;
+		VAR:description = "OROGRAPHIC VARIANCE" ;
+		VAR:units = "" ;
+		VAR:stagger = "" ;
+		VAR:coordinates = "XLONG XLAT XTIME" ;
+	float MAPFAC_M(Time, south_north, west_east) ;
+		MAPFAC_M:FieldType = 104 ;
+		MAPFAC_M:MemoryOrder = "XY " ;
+		MAPFAC_M:description = "Map scale factor on mass grid" ;
+		MAPFAC_M:units = "" ;
+		MAPFAC_M:stagger = "" ;
+		MAPFAC_M:coordinates = "XLONG XLAT XTIME" ;
+	float MAPFAC_U(Time, south_north, west_east_stag) ;
+		MAPFAC_U:FieldType = 104 ;
+		MAPFAC_U:MemoryOrder = "XY " ;
+		MAPFAC_U:description = "Map scale factor on u-grid" ;
+		MAPFAC_U:units = "" ;
+		MAPFAC_U:stagger = "X" ;
+		MAPFAC_U:coordinates = "XLONG_U XLAT_U XTIME" ;
+	float MAPFAC_V(Time, south_north_stag, west_east) ;
+		MAPFAC_V:FieldType = 104 ;
+		MAPFAC_V:MemoryOrder = "XY " ;
+		MAPFAC_V:description = "Map scale factor on v-grid" ;
+		MAPFAC_V:units = "" ;
+		MAPFAC_V:stagger = "Y" ;
+		MAPFAC_V:coordinates = "XLONG_V XLAT_V XTIME" ;
+	float MAPFAC_MX(Time, south_north, west_east) ;
+		MAPFAC_MX:FieldType = 104 ;
+		MAPFAC_MX:MemoryOrder = "XY " ;
+		MAPFAC_MX:description = "Map scale factor on mass grid, x direction" ;
+		MAPFAC_MX:units = "" ;
+		MAPFAC_MX:stagger = "" ;
+		MAPFAC_MX:coordinates = "XLONG XLAT XTIME" ;
+	float MAPFAC_MY(Time, south_north, west_east) ;
+		MAPFAC_MY:FieldType = 104 ;
+		MAPFAC_MY:MemoryOrder = "XY " ;
+		MAPFAC_MY:description = "Map scale factor on mass grid, y direction" ;
+		MAPFAC_MY:units = "" ;
+		MAPFAC_MY:stagger = "" ;
+		MAPFAC_MY:coordinates = "XLONG XLAT XTIME" ;
+	float MAPFAC_UX(Time, south_north, west_east_stag) ;
+		MAPFAC_UX:FieldType = 104 ;
+		MAPFAC_UX:MemoryOrder = "XY " ;
+		MAPFAC_UX:description = "Map scale factor on u-grid, x direction" ;
+		MAPFAC_UX:units = "" ;
+		MAPFAC_UX:stagger = "X" ;
+		MAPFAC_UX:coordinates = "XLONG_U XLAT_U XTIME" ;
+	float MAPFAC_UY(Time, south_north, west_east_stag) ;
+		MAPFAC_UY:FieldType = 104 ;
+		MAPFAC_UY:MemoryOrder = "XY " ;
+		MAPFAC_UY:description = "Map scale factor on u-grid, y direction" ;
+		MAPFAC_UY:units = "" ;
+		MAPFAC_UY:stagger = "X" ;
+		MAPFAC_UY:coordinates = "XLONG_U XLAT_U XTIME" ;
+	float MAPFAC_VX(Time, south_north_stag, west_east) ;
+		MAPFAC_VX:FieldType = 104 ;
+		MAPFAC_VX:MemoryOrder = "XY " ;
+		MAPFAC_VX:description = "Map scale factor on v-grid, x direction" ;
+		MAPFAC_VX:units = "" ;
+		MAPFAC_VX:stagger = "Y" ;
+		MAPFAC_VX:coordinates = "XLONG_V XLAT_V XTIME" ;
+	float MF_VX_INV(Time, south_north_stag, west_east) ;
+		MF_VX_INV:FieldType = 104 ;
+		MF_VX_INV:MemoryOrder = "XY " ;
+		MF_VX_INV:description = "Inverse map scale factor on v-grid, x direction" ;
+		MF_VX_INV:units = "" ;
+		MF_VX_INV:stagger = "Y" ;
+		MF_VX_INV:coordinates = "XLONG_V XLAT_V XTIME" ;
+	float MAPFAC_VY(Time, south_north_stag, west_east) ;
+		MAPFAC_VY:FieldType = 104 ;
+		MAPFAC_VY:MemoryOrder = "XY " ;
+		MAPFAC_VY:description = "Map scale factor on v-grid, y direction" ;
+		MAPFAC_VY:units = "" ;
+		MAPFAC_VY:stagger = "Y" ;
+		MAPFAC_VY:coordinates = "XLONG_V XLAT_V XTIME" ;
+	float F(Time, south_north, west_east) ;
+		F:FieldType = 104 ;
+		F:MemoryOrder = "XY " ;
+		F:description = "Coriolis sine latitude term" ;
+		F:units = "s-1" ;
+		F:stagger = "" ;
+		F:coordinates = "XLONG XLAT XTIME" ;
+	float E(Time, south_north, west_east) ;
+		E:FieldType = 104 ;
+		E:MemoryOrder = "XY " ;
+		E:description = "Coriolis cosine latitude term" ;
+		E:units = "s-1" ;
+		E:stagger = "" ;
+		E:coordinates = "XLONG XLAT XTIME" ;
+	float SINALPHA(Time, south_north, west_east) ;
+		SINALPHA:FieldType = 104 ;
+		SINALPHA:MemoryOrder = "XY " ;
+		SINALPHA:description = "Local sine of map rotation" ;
+		SINALPHA:units = "" ;
+		SINALPHA:stagger = "" ;
+		SINALPHA:coordinates = "XLONG XLAT XTIME" ;
+	float COSALPHA(Time, south_north, west_east) ;
+		COSALPHA:FieldType = 104 ;
+		COSALPHA:MemoryOrder = "XY " ;
+		COSALPHA:description = "Local cosine of map rotation" ;
+		COSALPHA:units = "" ;
+		COSALPHA:stagger = "" ;
+		COSALPHA:coordinates = "XLONG XLAT XTIME" ;
+	float HGT(Time, south_north, west_east) ;
+		HGT:FieldType = 104 ;
+		HGT:MemoryOrder = "XY " ;
+		HGT:description = "Terrain Height" ;
+		HGT:units = "m" ;
+		HGT:stagger = "" ;
+		HGT:coordinates = "XLONG XLAT XTIME" ;
+	float TSK(Time, south_north, west_east) ;
+		TSK:FieldType = 104 ;
+		TSK:MemoryOrder = "XY " ;
+		TSK:description = "SURFACE SKIN TEMPERATURE" ;
+		TSK:units = "K" ;
+		TSK:stagger = "" ;
+		TSK:coordinates = "XLONG XLAT XTIME" ;
+	float P_TOP(Time) ;
+		P_TOP:FieldType = 104 ;
+		P_TOP:MemoryOrder = "0  " ;
+		P_TOP:description = "PRESSURE TOP OF THE MODEL" ;
+		P_TOP:units = "Pa" ;
+		P_TOP:stagger = "" ;
+	float T00(Time) ;
+		T00:FieldType = 104 ;
+		T00:MemoryOrder = "0  " ;
+		T00:description = "BASE STATE TEMPERATURE" ;
+		T00:units = "K" ;
+		T00:stagger = "" ;
+	float P00(Time) ;
+		P00:FieldType = 104 ;
+		P00:MemoryOrder = "0  " ;
+		P00:description = "BASE STATE PRESURE" ;
+		P00:units = "Pa" ;
+		P00:stagger = "" ;
+	float TLP(Time) ;
+		TLP:FieldType = 104 ;
+		TLP:MemoryOrder = "0  " ;
+		TLP:description = "BASE STATE LAPSE RATE" ;
+		TLP:units = "" ;
+		TLP:stagger = "" ;
+	float TISO(Time) ;
+		TISO:FieldType = 104 ;
+		TISO:MemoryOrder = "0  " ;
+		TISO:description = "TEMP AT WHICH THE BASE T TURNS CONST" ;
+		TISO:units = "K" ;
+		TISO:stagger = "" ;
+	float TLP_STRAT(Time) ;
+		TLP_STRAT:FieldType = 104 ;
+		TLP_STRAT:MemoryOrder = "0  " ;
+		TLP_STRAT:description = "BASE STATE LAPSE RATE (DT/D(LN(P)) IN STRATOSPHERE" ;
+		TLP_STRAT:units = "K" ;
+		TLP_STRAT:stagger = "" ;
+	float P_STRAT(Time) ;
+		P_STRAT:FieldType = 104 ;
+		P_STRAT:MemoryOrder = "0  " ;
+		P_STRAT:description = "BASE STATE PRESSURE AT BOTTOM OF STRATOSPHERE" ;
+		P_STRAT:units = "Pa" ;
+		P_STRAT:stagger = "" ;
+	float MAX_MSTFX(Time) ;
+		MAX_MSTFX:FieldType = 104 ;
+		MAX_MSTFX:MemoryOrder = "0  " ;
+		MAX_MSTFX:description = "Max map factor in domain" ;
+		MAX_MSTFX:units = "" ;
+		MAX_MSTFX:stagger = "" ;
+	float MAX_MSTFY(Time) ;
+		MAX_MSTFY:FieldType = 104 ;
+		MAX_MSTFY:MemoryOrder = "0  " ;
+		MAX_MSTFY:description = "Max map factor in domain" ;
+		MAX_MSTFY:units = "" ;
+		MAX_MSTFY:stagger = "" ;
+	float RAINC(Time, south_north, west_east) ;
+		RAINC:FieldType = 104 ;
+		RAINC:MemoryOrder = "XY " ;
+		RAINC:description = "ACCUMULATED TOTAL CUMULUS PRECIPITATION" ;
+		RAINC:units = "mm" ;
+		RAINC:stagger = "" ;
+		RAINC:coordinates = "XLONG XLAT XTIME" ;
+	float RAINSH(Time, south_north, west_east) ;
+		RAINSH:FieldType = 104 ;
+		RAINSH:MemoryOrder = "XY " ;
+		RAINSH:description = "ACCUMULATED SHALLOW CUMULUS PRECIPITATION" ;
+		RAINSH:units = "mm" ;
+		RAINSH:stagger = "" ;
+		RAINSH:coordinates = "XLONG XLAT XTIME" ;
+	float RAINNC(Time, south_north, west_east) ;
+		RAINNC:FieldType = 104 ;
+		RAINNC:MemoryOrder = "XY " ;
+		RAINNC:description = "ACCUMULATED TOTAL GRID SCALE PRECIPITATION" ;
+		RAINNC:units = "mm" ;
+		RAINNC:stagger = "" ;
+		RAINNC:coordinates = "XLONG XLAT XTIME" ;
+	float SNOWNC(Time, south_north, west_east) ;
+		SNOWNC:FieldType = 104 ;
+		SNOWNC:MemoryOrder = "XY " ;
+		SNOWNC:description = "ACCUMULATED TOTAL GRID SCALE SNOW AND ICE" ;
+		SNOWNC:units = "mm" ;
+		SNOWNC:stagger = "" ;
+		SNOWNC:coordinates = "XLONG XLAT XTIME" ;
+	float GRAUPELNC(Time, south_north, west_east) ;
+		GRAUPELNC:FieldType = 104 ;
+		GRAUPELNC:MemoryOrder = "XY " ;
+		GRAUPELNC:description = "ACCUMULATED TOTAL GRID SCALE GRAUPEL" ;
+		GRAUPELNC:units = "mm" ;
+		GRAUPELNC:stagger = "" ;
+		GRAUPELNC:coordinates = "XLONG XLAT XTIME" ;
+	float HAILNC(Time, south_north, west_east) ;
+		HAILNC:FieldType = 104 ;
+		HAILNC:MemoryOrder = "XY " ;
+		HAILNC:description = "ACCUMULATED TOTAL GRID SCALE HAIL" ;
+		HAILNC:units = "mm" ;
+		HAILNC:stagger = "" ;
+		HAILNC:coordinates = "XLONG XLAT XTIME" ;
+	float CLDFRA(Time, bottom_top, south_north, west_east) ;
+		CLDFRA:FieldType = 104 ;
+		CLDFRA:MemoryOrder = "XYZ" ;
+		CLDFRA:description = "CLOUD FRACTION" ;
+		CLDFRA:units = "" ;
+		CLDFRA:stagger = "" ;
+		CLDFRA:coordinates = "XLONG XLAT XTIME" ;
+	float SWDOWN(Time, south_north, west_east) ;
+		SWDOWN:FieldType = 104 ;
+		SWDOWN:MemoryOrder = "XY " ;
+		SWDOWN:description = "DOWNWARD SHORT WAVE FLUX AT GROUND SURFACE" ;
+		SWDOWN:units = "W m-2" ;
+		SWDOWN:stagger = "" ;
+		SWDOWN:coordinates = "XLONG XLAT XTIME" ;
+	float GLW(Time, south_north, west_east) ;
+		GLW:FieldType = 104 ;
+		GLW:MemoryOrder = "XY " ;
+		GLW:description = "DOWNWARD LONG WAVE FLUX AT GROUND SURFACE" ;
+		GLW:units = "W m-2" ;
+		GLW:stagger = "" ;
+		GLW:coordinates = "XLONG XLAT XTIME" ;
+	float SWNORM(Time, south_north, west_east) ;
+		SWNORM:FieldType = 104 ;
+		SWNORM:MemoryOrder = "XY " ;
+		SWNORM:description = "NORMAL SHORT WAVE FLUX AT GROUND SURFACE (SLOPE-DEPENDENT)" ;
+		SWNORM:units = "W m-2" ;
+		SWNORM:stagger = "" ;
+		SWNORM:coordinates = "XLONG XLAT XTIME" ;
+	float OLR(Time, south_north, west_east) ;
+		OLR:FieldType = 104 ;
+		OLR:MemoryOrder = "XY " ;
+		OLR:description = "TOA OUTGOING LONG WAVE" ;
+		OLR:units = "W m-2" ;
+		OLR:stagger = "" ;
+		OLR:coordinates = "XLONG XLAT XTIME" ;
+	float XLAT_U(Time, south_north, west_east_stag) ;
+		XLAT_U:FieldType = 104 ;
+		XLAT_U:MemoryOrder = "XY " ;
+		XLAT_U:description = "LATITUDE, SOUTH IS NEGATIVE" ;
+		XLAT_U:units = "degree_north" ;
+		XLAT_U:stagger = "X" ;
+		XLAT_U:coordinates = "XLONG_U XLAT_U" ;
+	float XLONG_U(Time, south_north, west_east_stag) ;
+		XLONG_U:FieldType = 104 ;
+		XLONG_U:MemoryOrder = "XY " ;
+		XLONG_U:description = "LONGITUDE, WEST IS NEGATIVE" ;
+		XLONG_U:units = "degree_east" ;
+		XLONG_U:stagger = "X" ;
+		XLONG_U:coordinates = "XLONG_U XLAT_U" ;
+	float XLAT_V(Time, south_north_stag, west_east) ;
+		XLAT_V:FieldType = 104 ;
+		XLAT_V:MemoryOrder = "XY " ;
+		XLAT_V:description = "LATITUDE, SOUTH IS NEGATIVE" ;
+		XLAT_V:units = "degree_north" ;
+		XLAT_V:stagger = "Y" ;
+		XLAT_V:coordinates = "XLONG_V XLAT_V" ;
+	float XLONG_V(Time, south_north_stag, west_east) ;
+		XLONG_V:FieldType = 104 ;
+		XLONG_V:MemoryOrder = "XY " ;
+		XLONG_V:description = "LONGITUDE, WEST IS NEGATIVE" ;
+		XLONG_V:units = "degree_east" ;
+		XLONG_V:stagger = "Y" ;
+		XLONG_V:coordinates = "XLONG_V XLAT_V" ;
+	float ALBEDO(Time, south_north, west_east) ;
+		ALBEDO:FieldType = 104 ;
+		ALBEDO:MemoryOrder = "XY " ;
+		ALBEDO:description = "ALBEDO" ;
+		ALBEDO:units = "-" ;
+		ALBEDO:stagger = "" ;
+		ALBEDO:coordinates = "XLONG XLAT XTIME" ;
+	float CLAT(Time, south_north, west_east) ;
+		CLAT:FieldType = 104 ;
+		CLAT:MemoryOrder = "XY " ;
+		CLAT:description = "COMPUTATIONAL GRID LATITUDE, SOUTH IS NEGATIVE" ;
+		CLAT:units = "degree_north" ;
+		CLAT:stagger = "" ;
+		CLAT:coordinates = "XLONG XLAT XTIME" ;
+	float ALBBCK(Time, south_north, west_east) ;
+		ALBBCK:FieldType = 104 ;
+		ALBBCK:MemoryOrder = "XY " ;
+		ALBBCK:description = "BACKGROUND ALBEDO" ;
+		ALBBCK:units = "" ;
+		ALBBCK:stagger = "" ;
+		ALBBCK:coordinates = "XLONG XLAT XTIME" ;
+	float EMISS(Time, south_north, west_east) ;
+		EMISS:FieldType = 104 ;
+		EMISS:MemoryOrder = "XY " ;
+		EMISS:description = "SURFACE EMISSIVITY" ;
+		EMISS:units = "" ;
+		EMISS:stagger = "" ;
+		EMISS:coordinates = "XLONG XLAT XTIME" ;
+	float NOAHRES(Time, south_north, west_east) ;
+		NOAHRES:FieldType = 104 ;
+		NOAHRES:MemoryOrder = "XY " ;
+		NOAHRES:description = "RESIDUAL OF THE NOAH SURFACE ENERGY BUDGET" ;
+		NOAHRES:units = "W m{-2}" ;
+		NOAHRES:stagger = "" ;
+		NOAHRES:coordinates = "XLONG XLAT XTIME" ;
+	float TMN(Time, south_north, west_east) ;
+		TMN:FieldType = 104 ;
+		TMN:MemoryOrder = "XY " ;
+		TMN:description = "SOIL TEMPERATURE AT LOWER BOUNDARY" ;
+		TMN:units = "K" ;
+		TMN:stagger = "" ;
+		TMN:coordinates = "XLONG XLAT XTIME" ;
+	float XLAND(Time, south_north, west_east) ;
+		XLAND:FieldType = 104 ;
+		XLAND:MemoryOrder = "XY " ;
+		XLAND:description = "LAND MASK (1 FOR LAND, 2 FOR WATER)" ;
+		XLAND:units = "" ;
+		XLAND:stagger = "" ;
+		XLAND:coordinates = "XLONG XLAT XTIME" ;
+	float UST(Time, south_north, west_east) ;
+		UST:FieldType = 104 ;
+		UST:MemoryOrder = "XY " ;
+		UST:description = "U* IN SIMILARITY THEORY" ;
+		UST:units = "m s-1" ;
+		UST:stagger = "" ;
+		UST:coordinates = "XLONG XLAT XTIME" ;
+	float PBLH(Time, south_north, west_east) ;
+		PBLH:FieldType = 104 ;
+		PBLH:MemoryOrder = "XY " ;
+		PBLH:description = "PBL HEIGHT" ;
+		PBLH:units = "m" ;
+		PBLH:stagger = "" ;
+		PBLH:coordinates = "XLONG XLAT XTIME" ;
+	float HFX(Time, south_north, west_east) ;
+		HFX:FieldType = 104 ;
+		HFX:MemoryOrder = "XY " ;
+		HFX:description = "UPWARD HEAT FLUX AT THE SURFACE" ;
+		HFX:units = "W m-2" ;
+		HFX:stagger = "" ;
+		HFX:coordinates = "XLONG XLAT XTIME" ;
+	float QFX(Time, south_north, west_east) ;
+		QFX:FieldType = 104 ;
+		QFX:MemoryOrder = "XY " ;
+		QFX:description = "UPWARD MOISTURE FLUX AT THE SURFACE" ;
+		QFX:units = "kg m-2 s-1" ;
+		QFX:stagger = "" ;
+		QFX:coordinates = "XLONG XLAT XTIME" ;
+	float LH(Time, south_north, west_east) ;
+		LH:FieldType = 104 ;
+		LH:MemoryOrder = "XY " ;
+		LH:description = "LATENT HEAT FLUX AT THE SURFACE" ;
+		LH:units = "W m-2" ;
+		LH:stagger = "" ;
+		LH:coordinates = "XLONG XLAT XTIME" ;
+	float ACHFX(Time, south_north, west_east) ;
+		ACHFX:FieldType = 104 ;
+		ACHFX:MemoryOrder = "XY " ;
+		ACHFX:description = "ACCUMULATED UPWARD HEAT FLUX AT THE SURFACE" ;
+		ACHFX:units = "J m-2" ;
+		ACHFX:stagger = "" ;
+		ACHFX:coordinates = "XLONG XLAT XTIME" ;
+	float ACLHF(Time, south_north, west_east) ;
+		ACLHF:FieldType = 104 ;
+		ACLHF:MemoryOrder = "XY " ;
+		ACLHF:description = "ACCUMULATED UPWARD LATENT HEAT FLUX AT THE SURFACE" ;
+		ACLHF:units = "J m-2" ;
+		ACLHF:stagger = "" ;
+		ACLHF:coordinates = "XLONG XLAT XTIME" ;
+	float SNOWC(Time, south_north, west_east) ;
+		SNOWC:FieldType = 104 ;
+		SNOWC:MemoryOrder = "XY " ;
+		SNOWC:description = "FLAG INDICATING SNOW COVERAGE (1 FOR SNOW COVER)" ;
+		SNOWC:units = "" ;
+		SNOWC:stagger = "" ;
+		SNOWC:coordinates = "XLONG XLAT XTIME" ;
+	float SR(Time, south_north, west_east) ;
+		SR:FieldType = 104 ;
+		SR:MemoryOrder = "XY " ;
+		SR:description = "fraction of frozen precipitation" ;
+		SR:units = "-" ;
+		SR:stagger = "" ;
+		SR:coordinates = "XLONG XLAT XTIME" ;
+	int SAVE_TOPO_FROM_REAL(Time) ;
+		SAVE_TOPO_FROM_REAL:FieldType = 106 ;
+		SAVE_TOPO_FROM_REAL:MemoryOrder = "0  " ;
+		SAVE_TOPO_FROM_REAL:description = "1=original topo from real/0=topo modified by WRF" ;
+		SAVE_TOPO_FROM_REAL:units = "flag" ;
+		SAVE_TOPO_FROM_REAL:stagger = "" ;
+	int ISEEDARR_SPPT(Time, bottom_top) ;
+		ISEEDARR_SPPT:FieldType = 106 ;
+		ISEEDARR_SPPT:MemoryOrder = "Z  " ;
+		ISEEDARR_SPPT:description = "Array to hold seed for restart, SPPT" ;
+		ISEEDARR_SPPT:units = "" ;
+		ISEEDARR_SPPT:stagger = "" ;
+	int ISEEDARR_SKEBS(Time, bottom_top) ;
+		ISEEDARR_SKEBS:FieldType = 106 ;
+		ISEEDARR_SKEBS:MemoryOrder = "Z  " ;
+		ISEEDARR_SKEBS:description = "Array to hold seed for restart, SKEBS" ;
+		ISEEDARR_SKEBS:units = "" ;
+		ISEEDARR_SKEBS:stagger = "" ;
+	int ISEEDARR_RAND_PERTURB(Time, bottom_top) ;
+		ISEEDARR_RAND_PERTURB:FieldType = 106 ;
+		ISEEDARR_RAND_PERTURB:MemoryOrder = "Z  " ;
+		ISEEDARR_RAND_PERTURB:description = "Array to hold seed for restart, RAND_PERT" ;
+		ISEEDARR_RAND_PERTURB:units = "" ;
+		ISEEDARR_RAND_PERTURB:stagger = "" ;
+	int ISEEDARRAY_SPP_CONV(Time, bottom_top) ;
+		ISEEDARRAY_SPP_CONV:FieldType = 106 ;
+		ISEEDARRAY_SPP_CONV:MemoryOrder = "Z  " ;
+		ISEEDARRAY_SPP_CONV:description = "Array to hold seed for restart, RAND_PERT2" ;
+		ISEEDARRAY_SPP_CONV:units = "" ;
+		ISEEDARRAY_SPP_CONV:stagger = "" ;
+	int ISEEDARRAY_SPP_PBL(Time, bottom_top) ;
+		ISEEDARRAY_SPP_PBL:FieldType = 106 ;
+		ISEEDARRAY_SPP_PBL:MemoryOrder = "Z  " ;
+		ISEEDARRAY_SPP_PBL:description = "Array to hold seed for restart, RAND_PERT3" ;
+		ISEEDARRAY_SPP_PBL:units = "" ;
+		ISEEDARRAY_SPP_PBL:stagger = "" ;
+	int ISEEDARRAY_SPP_LSM(Time, bottom_top) ;
+		ISEEDARRAY_SPP_LSM:FieldType = 106 ;
+		ISEEDARRAY_SPP_LSM:MemoryOrder = "Z  " ;
+		ISEEDARRAY_SPP_LSM:description = "Array to hold seed for restart, RAND_PERT4" ;
+		ISEEDARRAY_SPP_LSM:units = "" ;
+		ISEEDARRAY_SPP_LSM:stagger = "" ;
+	float BF(Time, bottom_top_stag) ;
+		BF:FieldType = 104 ;
+		BF:MemoryOrder = "Z  " ;
+		BF:description = "full levels, bf=0 => isobaric; bf=znw => sigma" ;
+		BF:units = "Dimensionless" ;
+		BF:stagger = "Z" ;
+	float C1H(Time, bottom_top) ;
+		C1H:FieldType = 104 ;
+		C1H:MemoryOrder = "Z  " ;
+		C1H:description = "half levels, c1h = d bf / d eta, using znw" ;
+		C1H:units = "Dimensionless" ;
+		C1H:stagger = "" ;
+	float C2H(Time, bottom_top) ;
+		C2H:FieldType = 104 ;
+		C2H:MemoryOrder = "Z  " ;
+		C2H:description = "half levels, c2h = (1-c1h)*(p0-pt)" ;
+		C2H:units = "Pa" ;
+		C2H:stagger = "" ;
+	float BH(Time, bottom_top) ;
+		BH:FieldType = 104 ;
+		BH:MemoryOrder = "Z  " ;
+		BH:description = "half levels, bh=0 => isobaric; bh=znu => sigma" ;
+		BH:units = "Dimensionless" ;
+		BH:stagger = "" ;
+	float C1F(Time, bottom_top_stag) ;
+		C1F:FieldType = 104 ;
+		C1F:MemoryOrder = "Z  " ;
+		C1F:description = "full levels, c1f = d bf / d eta, using znu" ;
+		C1F:units = "Dimensionless" ;
+		C1F:stagger = "Z" ;
+	float C2F(Time, bottom_top_stag) ;
+		C2F:FieldType = 104 ;
+		C2F:MemoryOrder = "Z  " ;
+		C2F:description = "full levels, c2f = (1-c1f)*(p0-pt)" ;
+		C2F:units = "Pa" ;
+		C2F:stagger = "Z" ;
+	float C3H(Time, bottom_top) ;
+		C3H:FieldType = 104 ;
+		C3H:MemoryOrder = "Z  " ;
+		C3H:description = "half levels, c3h = bh" ;
+		C3H:units = "Dimensionless" ;
+		C3H:stagger = "" ;
+	float C4H(Time, bottom_top) ;
+		C4H:FieldType = 104 ;
+		C4H:MemoryOrder = "Z  " ;
+		C4H:description = "half levels, c4h = (eta-bh)*(p0-pt)+pt, using znu" ;
+		C4H:units = "Pa" ;
+		C4H:stagger = "" ;
+	float C3F(Time, bottom_top_stag) ;
+		C3F:FieldType = 104 ;
+		C3F:MemoryOrder = "Z  " ;
+		C3F:description = "full levels, c3f = bf" ;
+		C3F:units = "Dimensionless" ;
+		C3F:stagger = "Z" ;
+	float C4F(Time, bottom_top_stag) ;
+		C4F:FieldType = 104 ;
+		C4F:MemoryOrder = "Z  " ;
+		C4F:description = "full levels, c4f = (eta-bf)*(p0-pt)+pt, using znw" ;
+		C4F:units = "Pa" ;
+		C4F:stagger = "Z" ;
+	float PCB(Time, south_north, west_east) ;
+		PCB:FieldType = 104 ;
+		PCB:MemoryOrder = "XY " ;
+		PCB:description = "base state dry air mass in column" ;
+		PCB:units = "Pa" ;
+		PCB:stagger = "" ;
+		PCB:coordinates = "XLONG XLAT XTIME" ;
+	float PC(Time, south_north, west_east) ;
+		PC:FieldType = 104 ;
+		PC:MemoryOrder = "XY " ;
+		PC:description = "perturbation dry air mass in column" ;
+		PC:units = "Pa" ;
+		PC:stagger = "" ;
+		PC:coordinates = "XLONG XLAT XTIME" ;
+	float LANDMASK(Time, south_north, west_east) ;
+		LANDMASK:FieldType = 104 ;
+		LANDMASK:MemoryOrder = "XY " ;
+		LANDMASK:description = "LAND MASK (1 FOR LAND, 0 FOR WATER)" ;
+		LANDMASK:units = "" ;
+		LANDMASK:stagger = "" ;
+		LANDMASK:coordinates = "XLONG XLAT XTIME" ;
+	float LAKEMASK(Time, south_north, west_east) ;
+		LAKEMASK:FieldType = 104 ;
+		LAKEMASK:MemoryOrder = "XY " ;
+		LAKEMASK:description = "LAKE MASK (1 FOR LAKE, 0 FOR NON-LAKE)" ;
+		LAKEMASK:units = "" ;
+		LAKEMASK:stagger = "" ;
+		LAKEMASK:coordinates = "XLONG XLAT XTIME" ;
+	float SST(Time, south_north, west_east) ;
+		SST:FieldType = 104 ;
+		SST:MemoryOrder = "XY " ;
+		SST:description = "SEA SURFACE TEMPERATURE" ;
+		SST:units = "K" ;
+		SST:stagger = "" ;
+		SST:coordinates = "XLONG XLAT XTIME" ;
+	float SST_INPUT(Time, south_north, west_east) ;
+		SST_INPUT:FieldType = 104 ;
+		SST_INPUT:MemoryOrder = "XY " ;
+		SST_INPUT:description = "SEA SURFACE TEMPERATURE FROM WRFLOWINPUT FILE" ;
+		SST_INPUT:units = "K" ;
+		SST_INPUT:stagger = "" ;
+		SST_INPUT:coordinates = "XLONG XLAT XTIME" ;
+
+// global attributes:
+		:TITLE = " OUTPUT FROM WRF V3.9.1.1 MODEL" ;
+		:START_DATE = "2017-09-07_12:00:00" ;
+		:SIMULATION_START_DATE = "2017-09-07_12:00:00" ;
+		:WEST-EAST_GRID_DIMENSION = 98 ;
+		:SOUTH-NORTH_GRID_DIMENSION = 70 ;
+		:BOTTOM-TOP_GRID_DIMENSION = 51 ;
+		:DX = 30000.f ;
+		:DY = 30000.f ;
+		:SKEBS_ON = 0 ;
+		:SPEC_BDY_FINAL_MU = 1 ;
+		:USE_Q_DIABATIC = 0 ;
+		:GRIDTYPE = "C" ;
+		:DIFF_OPT = 1 ;
+		:KM_OPT = 4 ;
+		:DAMP_OPT = 0 ;
+		:DAMPCOEF = 0.2f ;
+		:KHDIF = 0.f ;
+		:KVDIF = 0.f ;
+		:MP_PHYSICS = 3 ;
+		:RA_LW_PHYSICS = 1 ;
+		:RA_SW_PHYSICS = 1 ;
+		:SF_SFCLAY_PHYSICS = 1 ;
+		:SF_SURFACE_PHYSICS = 2 ;
+		:BL_PBL_PHYSICS = 1 ;
+		:CU_PHYSICS = 1 ;
+		:SF_LAKE_PHYSICS = 0 ;
+		:SURFACE_INPUT_SOURCE = 1 ;
+		:SST_UPDATE = 0 ;
+		:GRID_FDDA = 0 ;
+		:GFDDA_INTERVAL_M = 0 ;
+		:GFDDA_END_H = 0 ;
+		:GRID_SFDDA = 0 ;
+		:SGFDDA_INTERVAL_M = 0 ;
+		:SGFDDA_END_H = 0 ;
+		:HYPSOMETRIC_OPT = 2 ;
+		:USE_THETA_M = 0 ;
+		:GWD_OPT = 0 ;
+		:SF_URBAN_PHYSICS = 0 ;
+		:SF_OCEAN_PHYSICS = 0 ;
+		:SHCU_PHYSICS = 0 ;
+		:MFSHCONV = 0 ;
+		:FEEDBACK = 1 ;
+		:SMOOTH_OPTION = 0 ;
+		:SWRAD_SCAT = 1.f ;
+		:W_DAMPING = 0 ;
+		:DT = 90.f ;
+		:RADT = 30.f ;
+		:BLDT = 0.f ;
+		:CUDT = 5.f ;
+		:AER_OPT = 0 ;
+		:SWINT_OPT = 0 ;
+		:AER_TYPE = 1 ;
+		:AER_AOD550_OPT = 1 ;
+		:AER_ANGEXP_OPT = 1 ;
+		:AER_SSA_OPT = 1 ;
+		:AER_ASY_OPT = 1 ;
+		:AER_AOD550_VAL = 0.12f ;
+		:AER_ANGEXP_VAL = 1.3f ;
+		:AER_SSA_VAL = 0.85f ;
+		:AER_ASY_VAL = 0.9f ;
+		:MOIST_ADV_OPT = 1 ;
+		:SCALAR_ADV_OPT = 1 ;
+		:TKE_ADV_OPT = 1 ;
+		:DIFF_6TH_OPT = 0 ;
+		:DIFF_6TH_FACTOR = 0.12f ;
+		:OBS_NUDGE_OPT = 0 ;
+		:BUCKET_MM = -1.f ;
+		:BUCKET_J = -1.f ;
+		:PREC_ACC_DT = 0.f ;
+		:ISFTCFLX = 0 ;
+		:ISHALLOW = 0 ;
+		:ISFFLX = 1 ;
+		:ICLOUD = 1 ;
+		:ICLOUD_CU = 0 ;
+		:TRACER_PBLMIX = 1 ;
+		:SCALAR_PBLMIX = 0 ;
+		:YSU_TOPDOWN_PBLMIX = 0 ;
+		:GRAV_SETTLING = 0 ;
+		:DFI_OPT = 0 ;
+		:SIMULATION_INITIALIZATION_TYPE = "REAL-DATA CASE" ;
+		:WEST-EAST_PATCH_START_UNSTAG = 1 ;
+		:WEST-EAST_PATCH_END_UNSTAG = 97 ;
+		:WEST-EAST_PATCH_START_STAG = 1 ;
+		:WEST-EAST_PATCH_END_STAG = 98 ;
+		:SOUTH-NORTH_PATCH_START_UNSTAG = 1 ;
+		:SOUTH-NORTH_PATCH_END_UNSTAG = 69 ;
+		:SOUTH-NORTH_PATCH_START_STAG = 1 ;
+		:SOUTH-NORTH_PATCH_END_STAG = 70 ;
+		:BOTTOM-TOP_PATCH_START_UNSTAG = 1 ;
+		:BOTTOM-TOP_PATCH_END_UNSTAG = 50 ;
+		:BOTTOM-TOP_PATCH_START_STAG = 1 ;
+		:BOTTOM-TOP_PATCH_END_STAG = 51 ;
+		:GRID_ID = 1 ;
+		:PARENT_ID = 0 ;
+		:I_PARENT_START = 1 ;
+		:J_PARENT_START = 1 ;
+		:PARENT_GRID_RATIO = 1 ;
+		:CEN_LAT = 28.99999f ;
+		:CEN_LON = -84.f ;
+		:TRUELAT1 = 0.f ;
+		:TRUELAT2 = 0.f ;
+		:MOAD_CEN_LAT = 28.99999f ;
+		:STAND_LON = -84.f ;
+		:POLE_LAT = 90.f ;
+		:POLE_LON = 0.f ;
+		:GMT = 12.f ;
+		:JULYR = 2017 ;
+		:JULDAY = 250 ;
+		:MAP_PROJ = 3 ;
+		:MAP_PROJ_CHAR = "Mercator" ;
+		:MMINLU = "MODIFIED_IGBP_MODIS_NOAH" ;
+		:NUM_LAND_CAT = 21 ;
+		:ISWATER = 17 ;
+		:ISLAKE = 21 ;
+		:ISICE = 15 ;
+		:ISURBAN = 13 ;
+		:ISOILWATER = 14 ;
+		:HYBRID_OPT = -1 ;
+		:ETAC = 0.f ;
+data:
+
+ U10 =
+  2.267186, 2.538916, 2.878678, 3.179581, 3.34413, 3.382231, 3.31357, 
+    3.109867, 2.734746, 2.197685, 1.568933, 0.9065864, 0.1726093, -0.6145428, 
+    -1.287419, -1.676598, -1.750721, -1.65259, -1.575477, -1.66592, -1.89461, 
+    -2.086629, -2.044828, -1.648901, -0.9370812, -0.3146601, 0.1065176, 
+    0.388626, 0.5737553, 0.6676793, 0.8188164, 0.9924093, 1.156269, 1.413112, 
+    1.639583, 1.737734, 1.886813, 2.204932, 3.447432, 4.848933, 6.086941, 
+    6.986792, 7.565924, 7.986157, 8.383158, 8.831381, 9.301395, 9.728731, 
+    10.05869, 10.26452, 10.3719, 10.43238, 10.49952, 10.58929, 10.65362, 
+    10.61992, 10.42669, 10.07795, 9.656605, 9.267766, 8.981233, 8.754025, 
+    8.464139, 7.99437, 7.306324, 6.470038, 5.572242, 4.619262, 3.574404, 
+    2.56364, 1.757724, 1.375423, 1.575782, 1.586055, 1.61823, 1.363264, 
+    0.966059, 0.3714308, -0.5334074, -1.751619, -3.127675, -4.001353, 
+    -4.758076, -3.535402, -1.791797, -0.9226961, -1.076801, -1.929851, 
+    -2.943716, -3.691555, -4.175064, -4.520626, -4.672218, -4.557098, 
+    -4.171045, -3.617691, -3.032553,
+  2.078121, 2.439961, 2.602882, 2.705911, 2.771183, 2.84565, 2.88867, 
+    2.784161, 2.44996, 1.887131, 1.195518, 0.5061629, -0.195614, -0.9034555, 
+    -1.479108, -1.8039, -1.86706, -1.78659, -1.739786, -1.889554, -2.205512, 
+    -2.457191, -2.423365, -1.98964, -1.246947, -0.481914, -0.02998574, 
+    0.3666123, 0.699707, 1.031901, 1.34275, 1.599115, 1.823382, 2.015728, 
+    2.175995, 2.321571, 2.464653, 2.725691, 3.709006, 5.127663, 6.338222, 
+    7.225242, 7.783578, 8.141746, 8.456646, 8.846856, 9.305688, 9.765092, 
+    10.16152, 10.43504, 10.58928, 10.67731, 10.75978, 10.86257, 10.94879, 
+    10.93047, 10.7683, 10.45676, 10.05312, 9.660649, 9.372752, 9.154319, 
+    8.873818, 8.414652, 7.653809, 6.655809, 5.687618, 4.739333, 3.620869, 
+    2.211772, 1.563731, 1.436663, 1.560847, 1.648434, 1.540959, 1.280514, 
+    0.8992128, 0.3272029, -0.5406457, -1.996201, -4.395922, -5.973748, 
+    -5.959707, -4.406187, -2.386633, -1.214934, -1.331219, -2.382608, 
+    -3.62307, -4.390957, -4.611122, -4.553432, -4.36255, -4.07801, -3.661692, 
+    -3.125802, -2.446201,
+  1.674407, 1.974971, 2.137189, 2.284323, 2.397957, 2.465398, 2.427719, 
+    2.202003, 1.767822, 1.117443, 0.3660836, -0.2958123, -0.8846002, 
+    -1.428415, -1.866968, -2.0577, -2.018663, -1.878313, -1.729772, 
+    -1.743274, -1.921404, -2.071343, -2.02632, -1.603175, -0.9431655, 
+    -0.2691622, 0.2188988, 0.5627847, 0.9816458, 1.399202, 1.773338, 
+    2.209398, 2.425229, 2.659408, 2.849308, 2.748399, 2.900061, 3.203708, 
+    4.383232, 5.789101, 6.894522, 7.688957, 8.167039, 8.434323, 8.673801, 
+    9.02901, 9.470191, 9.952537, 10.21733, 10.33081, 10.49041, 10.59119, 
+    10.66033, 10.74237, 10.81005, 10.79107, 10.64816, 10.38192, 10.02894, 
+    9.638537, 9.248376, 8.855671, 8.4076, 7.80413, 7.01636, 5.995718, 
+    5.065146, 4.362708, 3.351763, 2.029737, 1.569018, 1.541399, 1.62177, 
+    1.625436, 1.463414, 1.145754, 0.6480975, -0.08040832, -1.214767, 
+    -2.973335, -5.1206, -6.332452, -6.191081, -4.780038, -3.000874, 
+    -1.929672, -2.061907, -3.068091, -4.198304, -4.806902, -4.817932, 
+    -4.517963, -4.111313, -3.707332, -3.299143, -2.812577, -2.227578,
+  1.187508, 1.529268, 1.752382, 1.929974, 1.967049, 1.795471, 1.341867, 
+    0.6614922, 0.1184406, -0.4209373, -1.052146, -1.444082, -1.684836, 
+    -1.870893, -2.10733, -2.100236, -1.836977, -1.585689, -1.203543, 
+    -0.8722787, -0.7754641, -0.696865, -0.7729163, -0.3948102, 0.1859095, 
+    0.4994512, 1.244599, 1.9749, 2.537143, 3.218413, 3.748387, 3.505648, 
+    3.508007, 3.70458, 3.578482, 3.795902, 4.133507, 4.662967, 6.667775, 
+    7.949974, 8.748851, 9.243385, 9.464362, 9.50205, 9.603258, 9.96664, 
+    10.30596, 10.56516, 10.84804, 11.02344, 11.08703, 11.06015, 11.01742, 
+    11.10799, 11.1342, 10.96464, 10.72867, 10.47501, 10.17308, 9.784514, 
+    9.176515, 8.662837, 7.967375, 6.984186, 6.18301, 5.382749, 4.518331, 
+    3.835147, 3.00223, 1.864496, 1.54455, 1.412957, 1.280103, 1.166817, 
+    0.7904537, 0.4481096, -0.091138, -0.9892536, -2.236038, -3.734482, 
+    -5.112659, -5.868443, -5.745098, -4.808023, -3.6206, -2.915781, 
+    -3.065498, -3.820158, -4.609941, -4.963486, -4.822374, -4.384322, 
+    -3.840615, -3.429917, -3.089344, -2.674455, -2.266832,
+  0.6700305, 1.114898, 1.449495, 1.419695, 1.166185, 0.6844686, -0.4075267, 
+    -1.608078, -1.967632, -1.937084, -2.086453, -2.184077, -2.086253, 
+    -1.800409, -1.750876, -1.560708, -0.9525845, -0.5865981, -0.1438708, 
+    0.509594, 0.78092, 1.055686, 0.8541018, 1.234335, 1.704513, 1.494597, 
+    2.496185, 3.440709, 3.846509, 4.622128, 5.481498, 6.224473, 6.538096, 
+    6.838715, 7.563723, 8.444763, 9.223772, 10.13462, 11.02915, 11.67604, 
+    12.19515, 12.4754, 12.56361, 12.41051, 12.45488, 12.94334, 13.45582, 
+    14.08141, 14.74109, 15.0743, 15.21795, 14.57681, 10.96187, 8.499109, 
+    10.54406, 11.21191, 10.98828, 10.55692, 10.04612, 9.674696, 8.971639, 
+    7.943945, 7.459401, 6.640955, 4.267731, 3.197606, 2.78146, 2.416826, 
+    1.880574, 1.412445, 1.078437, 0.8094566, 0.6251056, 0.3746799, 
+    -0.1040899, -0.5452868, -0.8692697, -1.947722, -3.11225, -4.095304, 
+    -4.985212, -5.501449, -5.497937, -5.0138, -4.32914, -3.872805, -3.947847, 
+    -4.374331, -4.749422, -4.893725, -4.689907, -4.239384, -3.791558, 
+    -3.376699, -3.013203, -2.718109, -2.479566,
+  0.2642105, 0.789133, 1.20715, 0.9675164, 0.807653, 0.61331, -0.2821596, 
+    -0.9620871, -1.122193, -1.134418, -1.507647, -2.091697, -2.255145, 
+    -1.950543, -1.560561, -1.368632, -0.8487981, -0.5172284, -0.5473996, 
+    -0.1053775, 0.1750931, 0.2577932, 0.6866794, 1.131545, 1.003484, 
+    1.197782, 2.153305, 2.609504, 3.142531, 3.922271, 4.50403, 4.837468, 
+    4.536109, 4.873394, 5.870884, 6.6859, 7.066743, 7.569254, 8.606009, 
+    9.763152, 10.5528, 10.75802, 11.0271, 11.35408, 11.84391, 11.78083, 
+    8.511624, 8.305924, 11.77969, 13.43622, 14.35606, 14.96322, 14.86254, 
+    13.9567, 12.82489, 11.76564, 10.90377, 10.66711, 10.66335, 10.19547, 
+    9.172757, 7.257845, 4.074941, 3.217763, 2.600718, 2.121917, 1.842698, 
+    1.51976, 0.9534144, 0.9117059, 0.7466437, 0.2010846, -0.4609947, 
+    -0.8510744, -1.23554, -1.677528, -1.905577, -2.832469, -3.698018, 
+    -4.266442, -4.805812, -5.262255, -5.418002, -5.22065, -4.775493, 
+    -4.463768, -4.480599, -4.63942, -4.751318, -4.783692, -4.580739, 
+    -4.198879, -3.858897, -3.457341, -3.088028, -2.88968, -2.765609,
+  0.07181977, 0.5993548, 1.070201, 0.7994338, 0.737628, 0.1246262, 
+    -0.8051276, -1.087145, -1.122938, -0.9639286, -1.672648, -2.292642, 
+    -2.251837, -1.768808, -1.241827, -1.002021, -0.599833, -0.4325404, 
+    -0.4023202, 0.03084253, 0.3580313, 0.5472627, 1.180802, 1.581046, 
+    1.212042, 1.75088, 2.449875, 2.590905, 3.350173, 3.933478, 4.092523, 
+    3.932618, 3.710097, 4.403695, 5.336582, 6.070344, 6.562301, 6.95253, 
+    8.065372, 9.42964, 9.992861, 10.18128, 10.92553, 11.87644, 12.25326, 
+    12.3771, 12.69678, 10.49193, 9.010376, 10.57036, 12.99259, 14.10214, 
+    14.78535, 15.04215, 14.20481, 12.96503, 11.36357, 7.122755, 5.76747, 
+    5.477382, 5.668574, 4.993194, 3.904228, 3.035791, 2.065031, 1.460747, 
+    1.31578, 0.7904944, 0.2832293, 0.3666566, 0.3815933, -0.6475838, 
+    -1.818182, -2.058074, -2.464695, -2.866578, -3.03215, -3.687254, 
+    -4.175438, -4.465884, -4.840256, -5.2736, -5.488901, -5.372352, 
+    -5.036355, -4.809612, -4.739185, -4.790822, -4.833787, -4.723671, 
+    -4.552842, -4.273039, -4.003276, -3.658251, -3.298233, -3.138161, 
+    -3.062309,
+  0.008375632, 0.4979244, 0.9373731, 0.5229096, 0.3061755, -0.5564856, 
+    -1.142725, -0.8486512, -0.8799884, -0.7358543, -1.550691, -2.086881, 
+    -1.887387, -1.414805, -0.9690559, -0.7771367, -0.4735572, -0.373138, 
+    -0.3271248, -0.01638401, 0.4371443, 0.4627991, 0.8130153, 1.215212, 
+    1.078092, 2.067101, 2.612603, 2.473103, 3.096406, 3.438535, 3.38491, 
+    3.187099, 3.292341, 4.019721, 4.595788, 5.101566, 5.935408, 6.951539, 
+    7.921061, 8.570437, 9.077482, 9.707709, 10.53381, 11.29068, 11.48666, 
+    11.97697, 12.44101, 8.828762, 7.652485, 9.20791, 10.35508, 10.95273, 
+    13.25654, 14.71171, 15.10753, 13.67744, 8.367324, 5.862901, 4.981349, 
+    4.944943, 4.500607, 4.253882, 3.771682, 2.873414, 1.829057, 1.183795, 
+    0.6790936, -0.3906406, -0.8892403, -0.59187, -0.4183907, -1.681841, 
+    -3.020879, -3.178189, -3.622845, -3.888965, -3.986511, -4.367605, 
+    -4.589104, -4.842928, -5.155677, -5.36495, -5.450461, -5.414557, 
+    -5.297998, -5.087184, -4.814928, -4.968039, -4.980351, -4.715765, 
+    -4.59878, -4.412488, -4.29824, -4.005354, -3.663183, -3.526461, -3.457149,
+  0.03079868, 0.4405347, 0.756693, 0.1653097, -0.2609079, -1.268406, 
+    -1.85665, -1.409331, -1.319382, -1.178422, -1.866647, -2.046633, 
+    -1.623338, -1.17209, -0.986645, -0.9797233, -0.3636194, -0.1258694, 
+    -0.173675, 0.02389821, 0.411352, 0.2993711, 0.5160732, 0.8949822, 
+    1.022415, 2.158828, 2.556932, 2.354334, 2.682669, 2.960456, 2.746465, 
+    2.983099, 3.527264, 3.838814, 4.396286, 5.199339, 6.131042, 6.868133, 
+    7.511959, 7.9494, 8.719533, 9.614113, 10.20977, 10.90252, 11.5824, 
+    12.01462, 12.92567, 13.12398, 9.128103, 7.420979, 7.085898, 8.799283, 
+    9.775248, 10.37711, 11.03086, 10.46332, 8.392141, 6.496124, 5.799213, 
+    4.974239, 4.059809, 3.55912, 3.034537, 2.168474, 1.323046, 0.766472, 
+    -0.2432911, -1.55718, -2.008449, -1.698602, -1.726067, -2.804953, 
+    -3.856411, -4.172862, -4.508106, -4.642057, -4.708668, -4.938807, 
+    -5.101638, -5.271301, -5.301526, -5.335724, -5.455781, -5.455327, 
+    -5.338996, -5.214998, -4.98938, -5.17419, -5.167322, -4.782674, 
+    -4.707497, -4.673768, -4.699787, -4.466092, -4.108259, -3.974979, 
+    -3.887232,
+  0.06713548, 0.3740358, 0.5304519, -0.3671995, -1.023151, -1.611341, 
+    -2.280988, -2.160194, -1.692178, -1.475331, -1.866629, -1.775455, 
+    -1.284494, -0.8953605, -1.158871, -1.322827, -0.2640319, -0.07254302, 
+    -0.3070647, 0.2300707, 0.2173891, -0.0007424952, 0.1531812, 0.7364591, 
+    0.9376729, 1.729887, 2.078029, 1.848011, 2.2406, 2.702444, 2.67169, 
+    2.931434, 3.596799, 3.693637, 4.542991, 5.833181, 6.217033, 6.261474, 
+    7.050617, 7.825134, 8.387115, 8.971335, 9.570008, 10.28168, 11.1021, 
+    11.56666, 12.00284, 12.67863, 12.97213, 13.28579, 13.13061, 8.470824, 
+    6.559266, 8.161968, 8.854616, 9.338028, 9.169923, 6.878893, 4.958813, 
+    4.41799, 3.881999, 3.137429, 2.14846, 1.258152, 0.8756779, 0.1700455, 
+    -1.223743, -2.805415, -3.139425, -2.856789, -3.22044, -3.975845, 
+    -4.517041, -4.861142, -5.022657, -5.145113, -5.275339, -5.46015, 
+    -5.502024, -5.371022, -5.268236, -5.450935, -5.509647, -5.290957, 
+    -5.280698, -5.384214, -5.420873, -5.364209, -5.202288, -4.956161, 
+    -4.846628, -4.987166, -5.107985, -4.925058, -4.539481, -4.387179, 
+    -4.281662,
+  0.1695976, 0.3622807, 0.3240535, -0.7861825, -1.466962, -1.73064, 
+    -2.391749, -2.325546, -1.855303, -1.755769, -1.714793, -1.525352, 
+    -1.146799, -0.8764147, -1.509049, -1.678511, -0.5674194, -0.4554985, 
+    -0.6336787, 0.07998034, -0.1158185, -0.2421335, 0.08160219, 0.8897789, 
+    0.9899086, 1.24311, 1.610957, 1.485411, 1.954719, 2.502606, 2.636137, 
+    2.727141, 3.411488, 3.85129, 4.827672, 5.82429, 5.960454, 6.096111, 
+    6.712555, 7.386645, 7.916985, 8.451101, 9.098378, 9.541364, 10.24806, 
+    10.85399, 10.95705, 11.24776, 11.54798, 11.80926, 11.95816, 12.40825, 
+    12.79235, 13.14332, 12.78264, 9.956249, 11.58437, 11.52492, 8.775298, 
+    6.369863, 5.141071, 3.600454, 2.007991, 0.9354635, 0.2122293, -0.6804036, 
+    -2.329161, -3.876097, -4.067251, -3.868487, -4.380356, -4.979263, 
+    -5.211469, -5.273299, -5.337324, -5.534106, -5.724454, -5.809987, 
+    -5.662319, -5.435441, -5.401401, -5.509858, -5.669708, -5.638593, 
+    -5.493802, -5.510991, -5.533124, -5.472234, -5.32241, -5.080824, 
+    -5.039596, -5.329298, -5.540503, -5.281584, -4.901618, -4.77061, -4.664306,
+  0.3442793, 0.396294, 0.1540979, -1.105213, -1.788615, -1.873728, -2.263379, 
+    -2.087354, -1.913238, -1.860112, -1.530321, -1.282587, -1.263043, 
+    -0.9631204, -1.366632, -1.800226, -1.234079, -0.9602307, -0.8529825, 
+    -0.5485834, -0.6407329, -0.3539824, 0.29405, 1.006047, 1.063642, 
+    0.8520441, 1.067178, 1.296309, 1.720721, 2.140706, 2.331937, 2.61719, 
+    3.147918, 3.655547, 4.877225, 5.523314, 5.329226, 5.850863, 6.344367, 
+    6.831235, 7.291386, 7.501163, 8.066431, 8.611106, 9.14827, 9.51424, 
+    9.521244, 9.940225, 10.67032, 11.00628, 11.56922, 12.32894, 12.93884, 
+    13.41551, 13.89511, 13.98534, 13.99023, 13.8019, 11.37921, 8.079947, 
+    5.600917, 3.341571, 1.436247, 0.1546371, -0.6517274, -1.962573, 
+    -3.647899, -4.772393, -4.943758, -5.071367, -5.667184, -5.884748, 
+    -5.728181, -5.568941, -5.688793, -5.952491, -6.112558, -6.050906, 
+    -5.841585, -5.761838, -5.728694, -5.71947, -6.086434, -6.102376, 
+    -5.811164, -5.732934, -5.45401, -5.471855, -5.492239, -5.278751, 
+    -5.352382, -5.691919, -5.892468, -5.561296, -5.23202, -5.153892, -5.055379,
+  0.5025168, 0.4103931, -0.01632748, -1.374128, -2.239877, -2.14057, 
+    -2.033871, -1.895442, -1.892216, -1.813694, -1.604787, -1.361521, 
+    -1.317683, -1.109076, -1.085964, -1.540589, -1.612505, -1.43026, 
+    -1.292022, -1.019528, -0.7756345, -0.3439621, 0.1809932, 0.8153548, 
+    1.064829, 0.4373727, 0.4125836, 1.168171, 1.753701, 1.928403, 2.258146, 
+    2.831589, 2.877599, 3.284823, 4.618787, 4.83466, 4.634019, 5.382942, 
+    5.508776, 5.7896, 6.501019, 6.56509, 6.970781, 7.564816, 7.803701, 
+    7.951972, 8.168431, 8.9398, 9.819826, 10.42254, 11.06199, 12.12672, 
+    13.44668, 14.44881, 15.22869, 15.60138, 15.62196, 15.23552, 13.23277, 
+    9.832275, 6.381082, 3.110157, 0.3483322, -1.140248, -2.100824, -3.612062, 
+    -4.619607, -5.49973, -6.164614, -6.187345, -6.381088, -6.387976, 
+    -6.141243, -5.946374, -6.146209, -6.403125, -6.425169, -6.295897, 
+    -6.176877, -6.173217, -6.076767, -6.033334, -6.252896, -6.385204, 
+    -6.284409, -5.889355, -5.410452, -5.654254, -5.755714, -5.536179, 
+    -5.729835, -6.008642, -6.107623, -5.779908, -5.514994, -5.491405, 
+    -5.409505,
+  0.5529675, 0.3366275, -0.2305656, -1.729855, -2.601783, -2.211911, 
+    -1.932164, -1.980193, -1.866834, -1.710823, -1.772471, -1.496557, 
+    -1.254913, -1.266384, -1.214983, -1.397555, -1.44761, -1.562636, 
+    -1.779443, -1.079731, -0.4632752, -0.3941125, -0.03408968, 0.4120115, 
+    0.5731748, 0.1281192, 0.2678981, 1.144148, 1.597482, 1.820353, 2.259934, 
+    2.782722, 2.730036, 3.00405, 4.081248, 4.049644, 3.992977, 4.631239, 
+    4.342741, 4.467267, 5.234368, 5.753711, 6.391845, 6.423506, 6.267752, 
+    6.609803, 7.255443, 8.0439, 8.573334, 9.614905, 11.20265, 12.73807, 
+    14.24589, 15.60896, 16.93728, 17.96601, 17.81327, 16.56251, 14.65368, 
+    11.56632, 7.226439, 2.669917, -0.8069944, -2.595784, -3.874269, 
+    -4.900434, -5.300967, -6.564361, -7.611763, -7.690001, -7.914659, 
+    -7.416618, -6.481185, -6.368473, -6.639868, -6.803933, -6.796641, 
+    -6.568962, -6.453011, -6.531291, -6.464228, -6.532176, -6.793536, 
+    -6.624878, -6.311854, -5.807621, -5.441505, -6.07753, -6.090649, 
+    -5.766973, -6.054248, -6.224388, -6.245667, -5.95367, -5.729992, 
+    -5.751979, -5.697652,
+  0.43083, 0.1374155, -0.5217707, -2.132948, -2.745553, -2.135686, -2.014945, 
+    -1.955714, -1.663437, -1.684395, -1.756625, -1.574385, -1.440371, 
+    -1.356987, -1.567103, -1.601684, -1.371056, -1.42695, -1.785334, 
+    -1.118767, -0.3680345, -0.5678282, -0.3630576, -0.09937935, 0.007199264, 
+    0.1001725, 0.445121, 0.8806227, 1.1015, 1.56404, 2.146481, 2.505718, 
+    2.403763, 2.503074, 3.278201, 3.248897, 3.083744, 3.770056, 3.860979, 
+    3.706742, 3.861926, 4.863212, 5.598098, 4.916884, 4.637006, 5.495709, 
+    6.257979, 6.688063, 7.798758, 9.618655, 11.37745, 12.92185, 14.482, 
+    15.77276, 16.96099, 18.25301, 19.14465, 18.52394, 16.34159, 13.11449, 
+    7.964988, 1.919848, -2.238473, -4.248236, -5.478369, -5.951001, 
+    -6.686337, -8.255737, -8.909729, -8.801033, -7.86893, -5.564394, 
+    -6.561351, -7.035248, -7.082123, -7.209175, -7.08406, -6.984472, 
+    -6.999268, -6.841857, -6.731947, -6.993235, -7.029881, -6.806446, 
+    -6.521301, -5.848045, -5.857576, -6.505506, -6.266792, -5.974458, 
+    -6.297324, -6.433584, -6.334651, -6.07773, -5.863096, -5.914137, -5.901329,
+  0.1857605, -0.1402848, -0.8499922, -2.43561, -2.888421, -1.978259, 
+    -1.920635, -1.730951, -1.484772, -1.885637, -1.718305, -1.586999, 
+    -1.564811, -1.348848, -1.518853, -1.671474, -1.659192, -1.410687, 
+    -1.390423, -1.27805, -0.677954, -0.7541342, -0.9248412, -0.4855983, 
+    -0.2729078, 0.1622505, 0.3482853, 0.3158999, 0.6307167, 1.096846, 
+    1.763762, 2.106893, 1.860377, 1.736802, 2.235406, 2.423381, 2.253142, 
+    2.831821, 3.079448, 2.643781, 3.211042, 4.331448, 4.160621, 3.36792, 
+    3.098802, 3.761126, 4.944745, 5.813878, 7.133054, 8.771283, 10.25644, 
+    11.74275, 13.24219, 14.72316, 17.05333, 20.00928, 21.52831, 20.59536, 
+    17.95138, 14.1557, 8.494258, 1.268325, -3.977232, -6.110097, -7.070736, 
+    -7.604803, -8.647055, -9.889128, -10.2159, -10.01293, -8.932669, 
+    -7.661956, -7.399065, -7.505366, -7.640874, -7.669174, -7.729866, 
+    -7.918555, -7.777559, -7.06046, -6.719239, -7.060525, -7.22711, 
+    -6.923028, -6.635416, -6.386415, -6.291873, -6.602378, -6.414341, 
+    -6.146502, -6.437909, -6.556262, -6.391265, -6.127866, -5.90673, 
+    -5.977118, -6.02641,
+  -0.1130439, -0.446747, -1.156586, -2.56992, -2.906544, -1.993884, 
+    -1.904198, -1.693347, -1.653149, -2.042726, -1.722533, -1.641684, 
+    -1.636338, -1.468294, -1.365492, -1.464805, -1.933325, -1.596205, 
+    -1.181024, -1.374992, -1.206375, -1.02269, -1.259904, -0.9005287, 
+    -0.4834511, -0.02293407, -0.1670334, -0.2375984, 0.3625956, 0.4672814, 
+    1.117706, 1.565763, 1.22017, 0.9183974, 1.095061, 1.248985, 1.419968, 
+    2.142407, 1.813197, 1.489819, 2.654325, 2.884344, 2.331245, 2.339902, 
+    2.052095, 2.255012, 3.52691, 4.664785, 5.863645, 7.190799, 8.463053, 
+    9.78791, 11.19971, 13.74883, 18.89026, 24.50311, 26.69314, 24.34858, 
+    19.52077, 13.80395, 7.244668, -0.5130574, -6.318026, -8.246935, -9.09227, 
+    -10.01292, -10.85053, -11.60956, -11.67195, -10.34159, -7.459738, 
+    -8.210805, -8.278923, -7.988467, -8.303282, -8.341018, -8.53678, 
+    -8.657146, -8.167328, -7.327874, -6.91348, -7.02615, -7.436407, -7.49668, 
+    -6.671124, -6.043527, -6.49933, -6.924819, -6.525712, -6.311674, 
+    -6.51049, -6.522699, -6.406215, -6.109053, -5.880548, -5.97898, -6.102453,
+  -0.4097113, -0.7502878, -1.439307, -2.707697, -2.877362, -2.259272, 
+    -2.047504, -1.708326, -1.744492, -1.907152, -1.843143, -1.879438, 
+    -1.961481, -1.613327, -1.446747, -1.732455, -2.009515, -1.633998, 
+    -1.355944, -1.504055, -1.450529, -1.308211, -1.432627, -1.17692, 
+    -0.6816171, -0.5207964, -0.7681787, -0.5570971, -0.09202946, -0.1665137, 
+    0.3946111, 0.5078227, 0.3428293, 0.09771071, -0.007622631, 0.4214635, 
+    0.5716099, 1.039198, 0.8318359, 0.4757968, 1.062454, 1.259818, 1.47229, 
+    1.173756, 0.8192779, 1.183989, 2.039992, 3.315904, 4.349214, 5.296736, 
+    6.136847, 6.88475, 8.255065, 13.59521, 22.92388, 30.10095, 31.14774, 
+    26.34444, 18.89395, 11.52666, 4.407752, -3.386934, -8.960752, -10.93247, 
+    -12.0322, -12.7031, -12.96453, -13.26593, -12.77819, -10.37067, 
+    -7.382304, -8.916686, -8.913059, -8.737696, -9.191339, -9.061847, 
+    -8.865355, -8.801258, -8.252158, -7.545146, -7.178375, -7.255065, 
+    -7.593995, -7.701203, -6.888895, -5.97923, -6.687476, -7.170942, 
+    -6.668838, -6.510553, -6.507039, -6.421829, -6.340599, -6.057698, 
+    -5.811342, -5.934975, -6.136351,
+  -0.649007, -1.021823, -1.71904, -2.960754, -2.929519, -2.399243, -2.242638, 
+    -1.796281, -1.812447, -1.914323, -2.073101, -2.211281, -2.181201, 
+    -1.700867, -1.6955, -2.006235, -2.038099, -1.946907, -1.850832, 
+    -1.698255, -1.42646, -1.659959, -1.746692, -1.197307, -0.9387045, 
+    -1.065788, -1.382301, -1.226569, -0.8795239, -0.7215325, -0.3778408, 
+    -0.4418109, -0.6086095, -1.047554, -0.9502591, -0.1392666, -0.08969249, 
+    -0.3237053, -0.05087628, -0.1174375, -0.5050249, -0.05679192, 0.2715972, 
+    -0.1802517, -0.1727545, -0.02709132, 0.6325632, 1.826623, 2.605176, 
+    3.03412, 3.218225, 2.781858, 5.43988, 15.50842, 26.14769, 29.39373, 
+    25.9824, 18.51151, 9.953758, 2.953345, -3.174207, -9.2605, -13.11482, 
+    -14.60194, -15.29296, -15.1325, -15.10542, -14.81539, -13.55014, 
+    -11.72815, -10.72259, -9.923164, -9.207856, -9.69488, -10.00303, 
+    -9.579655, -9.073902, -8.687517, -8.109686, -7.709817, -7.628931, 
+    -7.61097, -7.661694, -7.718091, -7.331895, -6.671776, -6.884079, 
+    -7.134527, -6.87333, -6.66582, -6.481736, -6.32392, -6.240881, -5.975253, 
+    -5.726031, -5.867007, -6.146224,
+  -0.8471386, -1.268646, -2.018274, -3.271297, -3.171582, -2.411207, 
+    -2.444844, -2.200797, -2.089008, -2.039955, -2.049055, -2.289072, 
+    -2.086496, -1.80338, -2.088359, -2.132671, -2.046259, -2.243546, 
+    -2.244362, -1.952628, -1.605384, -1.834865, -1.968371, -1.571419, 
+    -1.452865, -1.676417, -2.079344, -2.094125, -1.75041, -1.374392, 
+    -1.173138, -1.054719, -1.288934, -1.80952, -1.665619, -0.9123953, 
+    -0.9150097, -1.34379, -1.056427, -1.077756, -1.748635, -1.292977, 
+    -0.9358137, -1.404644, -1.416106, -1.380299, -0.7279086, 0.2228992, 
+    0.6781487, 0.3708118, -0.5657932, -1.692126, 3.619908, 16.23407, 
+    21.82815, 16.72033, 9.987592, 2.023458, -4.558026, -5.576265, -7.782954, 
+    -12.41929, -17.71725, -18.96025, -18.17663, -17.38097, -17.05858, 
+    -16.28905, -14.70594, -13.18196, -11.93662, -10.34073, -9.813122, 
+    -10.62634, -10.43304, -9.630081, -9.046536, -8.622894, -8.39755, 
+    -8.080359, -8.192706, -8.19561, -7.750976, -7.79774, -7.701906, 
+    -7.058653, -6.988179, -7.178205, -6.990615, -6.771305, -6.472849, 
+    -6.205386, -6.134657, -5.854743, -5.608984, -5.700585, -6.064582,
+  -1.042914, -1.516688, -2.278928, -3.49036, -3.387735, -2.529829, -2.731294, 
+    -2.567647, -2.199153, -2.063798, -2.100213, -2.24658, -1.985072, 
+    -1.871802, -2.326443, -2.283599, -1.973893, -2.424937, -2.528009, 
+    -1.985033, -1.912421, -2.097029, -2.002815, -2.239126, -2.2503, 
+    -2.355068, -2.735922, -2.791481, -2.352149, -1.839881, -1.841708, 
+    -1.981712, -1.954294, -1.918259, -2.170985, -1.942808, -1.925924, 
+    -2.262973, -2.140458, -2.127109, -2.62059, -2.549525, -2.174159, 
+    -2.540428, -2.766818, -2.594748, -2.146213, -1.622969, -1.867204, 
+    -2.917922, -4.939628, -5.183212, 2.252896, 12.06848, 10.08033, -3.004592, 
+    -13.68316, -17.70041, -17.6284, -12.34727, -14.29193, -19.16754, 
+    -24.06547, -22.70987, -20.40651, -19.46345, -18.75019, -17.72827, 
+    -15.94316, -14.24325, -12.42657, -10.59474, -10.57893, -11.16023, 
+    -10.51069, -9.867047, -9.593125, -9.211879, -8.651558, -8.295438, 
+    -8.467957, -8.461205, -8.141209, -7.930357, -7.55819, -7.165976, 
+    -7.186273, -7.225582, -6.970572, -6.832751, -6.484432, -6.119754, 
+    -6.018339, -5.725171, -5.473279, -5.528484, -5.972998,
+  -1.186807, -1.720581, -2.472179, -3.550755, -3.365351, -2.795361, 
+    -2.842905, -2.510836, -2.341846, -2.276747, -2.180412, -2.164279, 
+    -2.064332, -1.826613, -2.312783, -2.484923, -1.866511, -2.518287, 
+    -2.929528, -2.24636, -2.206296, -2.403186, -2.395568, -2.813204, 
+    -2.949633, -2.956154, -3.193063, -3.323564, -2.949035, -2.333413, 
+    -2.404588, -2.673046, -2.580993, -2.311651, -2.703554, -2.987836, 
+    -2.910175, -3.238877, -3.249035, -3.086601, -3.500548, -3.427496, 
+    -3.308637, -3.693946, -3.833192, -3.71143, -3.502269, -3.657483, 
+    -4.81616, -6.765316, -8.909902, -7.734382, -0.2942921, 5.492608, 
+    -0.603214, -13.80549, -20.47515, -17.07822, -17.76211, -18.41576, 
+    -17.7584, -19.34954, -19.24049, -23.76008, -22.58847, -21.41624, 
+    -20.48919, -18.64033, -16.46857, -14.38039, -12.52772, -11.40904, 
+    -11.43367, -11.65261, -11.04194, -10.37387, -10.12848, -9.69805, 
+    -9.154672, -8.653087, -8.320862, -8.087936, -8.020923, -7.914441, 
+    -7.416975, -7.395348, -7.421939, -7.173166, -7.050804, -6.819323, 
+    -6.439289, -6.11136, -5.919761, -5.604241, -5.353203, -5.354013, -5.861537,
+  -1.274562, -1.898249, -2.629593, -3.600196, -3.302713, -2.833939, 
+    -2.825535, -2.556579, -2.565791, -2.380514, -2.339722, -2.332195, 
+    -2.269385, -1.738476, -2.020741, -2.909746, -2.371627, -2.522721, 
+    -3.117283, -2.823963, -2.911874, -2.909058, -2.84278, -3.24564, 
+    -3.435938, -3.481173, -3.60824, -3.870214, -3.698284, -2.950981, 
+    -2.874793, -3.271119, -3.243261, -2.90871, -3.145791, -3.629763, 
+    -3.645776, -3.850255, -4.257699, -4.176191, -4.43652, -4.484637, 
+    -4.068193, -4.502939, -4.847044, -4.703424, -4.65626, -5.441848, 
+    -7.778792, -10.62686, -12.218, -10.15371, -3.85106, -0.1915782, 
+    -6.593145, -17.85854, -24.09716, -20.4943, -21.76972, -22.23266, 
+    -21.17755, -18.76423, -19.15035, -25.24846, -24.6866, -23.03426, -21.035, 
+    -18.48144, -16.2526, -14.41399, -13.28963, -12.59118, -12.25296, 
+    -12.05575, -11.493, -10.7333, -10.30448, -9.823235, -9.356286, -8.882403, 
+    -8.251759, -8.133384, -8.172329, -7.724534, -7.368039, -7.76788, 
+    -7.622088, -7.16037, -6.99595, -6.69108, -6.442122, -6.150776, -5.873951, 
+    -5.553969, -5.275036, -5.223322, -5.763805,
+  -1.25584, -2.03055, -2.780447, -3.664543, -3.267025, -2.755911, -2.970078, 
+    -2.77888, -2.737822, -2.652087, -2.571977, -2.507449, -2.323904, 
+    -1.976114, -2.09358, -2.847182, -2.817922, -2.537878, -3.068582, 
+    -3.516306, -3.352342, -3.043616, -3.356087, -3.784032, -3.741154, 
+    -3.790829, -4.207117, -4.575589, -4.327157, -3.604263, -3.477105, 
+    -3.871325, -3.927229, -3.645409, -3.487838, -3.773346, -4.030242, 
+    -4.548276, -5.256381, -5.253965, -5.363443, -5.48464, -5.023611, 
+    -5.30817, -5.756875, -5.720932, -5.75971, -6.894242, -10.34292, 
+    -14.01201, -15.00746, -12.68765, -7.742534, -4.304385, -8.133152, 
+    -15.95984, -20.56898, -25.23363, -26.26318, -24.79216, -20.21961, 
+    -18.3089, -19.90215, -26.79958, -25.74239, -23.0604, -20.64047, 
+    -18.02459, -15.65421, -14.57661, -14.41798, -13.67387, -13.07086, 
+    -12.52742, -11.67693, -10.91753, -10.29311, -9.796467, -9.603235, 
+    -9.204034, -8.56496, -8.424809, -8.224436, -8.124352, -8.075433, 
+    -7.638872, -7.335538, -7.208125, -6.917477, -6.592687, -6.385794, 
+    -6.135303, -5.890039, -5.60235, -5.254992, -5.130011, -5.665371,
+  -1.219658, -2.159165, -2.925942, -3.707536, -3.348639, -2.910389, 
+    -3.194079, -3.086811, -2.967322, -2.890651, -2.911113, -2.750983, 
+    -2.318036, -2.320022, -2.581565, -2.608277, -2.574473, -2.374955, 
+    -2.776555, -3.557824, -3.342461, -3.322778, -3.814689, -4.124486, 
+    -4.263697, -4.317738, -4.788251, -5.163613, -4.833458, -4.232391, 
+    -4.148179, -4.414111, -4.554518, -4.381083, -3.959865, -3.960089, 
+    -4.396579, -5.062477, -5.905421, -6.32698, -6.428453, -6.590807, 
+    -6.371666, -6.254295, -6.559463, -6.837177, -6.83044, -7.947108, 
+    -12.09739, -16.50684, -17.27817, -15.22193, -11.98277, -8.674917, 
+    -8.698967, -10.72657, -16.14325, -23.33965, -25.89007, -24.97955, 
+    -22.47849, -19.84739, -19.97566, -26.50884, -24.57056, -21.5911, 
+    -18.90144, -15.95654, -13.58229, -15.24885, -15.3348, -14.25984, 
+    -13.40232, -12.45065, -11.61109, -10.99473, -10.43418, -10.19836, 
+    -10.17671, -9.535723, -8.703967, -8.724111, -8.794786, -8.587049, 
+    -8.277445, -7.711404, -7.417053, -7.204246, -6.84087, -6.530325, 
+    -6.298607, -6.113667, -5.913262, -5.639082, -5.28646, -5.063407, -5.567966,
+  -1.252941, -2.321553, -3.089206, -3.771994, -3.495017, -3.232758, -3.50079, 
+    -3.409819, -3.220529, -3.101001, -3.249601, -3.117111, -2.580696, 
+    -2.587008, -2.871381, -2.571851, -2.181451, -2.123942, -2.57019, 
+    -3.193864, -3.460656, -3.725217, -4.141398, -4.577686, -4.921315, 
+    -4.846529, -5.118995, -5.552848, -5.257098, -4.876688, -4.831666, 
+    -4.910093, -4.961895, -4.868782, -4.511344, -4.353417, -4.750463, 
+    -5.385636, -6.323188, -7.259825, -7.527328, -7.589212, -7.409961, 
+    -7.14167, -7.411777, -7.866913, -7.83291, -8.682019, -12.94852, 
+    -17.86343, -18.8009, -17.48526, -15.68904, -11.93943, -10.45823, 
+    -12.66782, -18.85949, -21.01561, -22.23622, -23.65464, -25.58015, 
+    -20.12559, -20.96725, -24.7368, -22.65142, -20.51757, -18.9058, 
+    -17.37248, -16.58464, -16.1992, -15.28283, -14.15888, -12.97601, 
+    -11.95507, -11.38728, -11.0976, -10.83548, -10.61462, -10.3973, 
+    -9.843188, -9.13266, -8.936991, -9.100747, -8.934934, -8.489179, 
+    -7.93542, -7.511434, -7.032914, -6.503659, -6.504898, -6.428074, 
+    -5.995639, -5.865043, -5.738875, -5.316419, -5.022178, -5.48201,
+  -1.429954, -2.535227, -3.28167, -3.90295, -3.726238, -3.624532, -3.822346, 
+    -3.712629, -3.506837, -3.283728, -3.411021, -3.458222, -2.987715, 
+    -2.65754, -2.837803, -2.768619, -2.355122, -2.304532, -2.772559, 
+    -3.191292, -3.548234, -3.985806, -4.558043, -5.161459, -5.344178, 
+    -5.246273, -5.389352, -5.717409, -5.789159, -5.626894, -5.477066, 
+    -5.432626, -5.426901, -5.342623, -5.161082, -5.058197, -5.277225, 
+    -5.837086, -6.677734, -7.501368, -7.957393, -8.328478, -8.424856, 
+    -8.239635, -8.363655, -8.701586, -8.744794, -9.348459, -13.08078, 
+    -18.09213, -19.48115, -18.82833, -18.01255, -13.22872, -8.351757, 
+    -11.40923, -15.53837, -17.4838, -18.33755, -19.35538, -21.82048, 
+    -17.97351, -19.14589, -23.46282, -22.17637, -20.41975, -19.09803, 
+    -17.93703, -17.01431, -15.88719, -14.59452, -13.38097, -12.22695, 
+    -11.35558, -11.14012, -11.2206, -11.32872, -11.38929, -10.90277, 
+    -10.00541, -9.405116, -9.347064, -9.624744, -9.329006, -8.447831, 
+    -7.515618, -7.008672, -7.0463, -6.788364, -6.596703, -6.408969, 
+    -5.903156, -5.838634, -5.772611, -5.325029, -4.995026, -5.412972,
+  -1.815429, -2.839928, -3.483994, -4.068986, -3.907752, -3.950087, 
+    -4.092041, -3.953424, -3.872312, -3.529058, -3.400074, -3.482352, 
+    -3.246472, -2.822936, -2.798038, -2.88462, -2.897985, -3.092335, 
+    -3.320602, -3.396628, -3.746926, -4.3503, -5.020991, -5.627054, 
+    -5.685264, -5.511753, -5.532437, -5.965964, -6.447606, -6.383239, 
+    -6.169849, -6.048809, -5.949065, -5.837073, -5.732154, -5.752362, 
+    -5.906169, -6.210137, -6.892523, -7.69175, -8.094814, -8.644062, 
+    -9.280293, -9.358459, -9.277089, -9.366158, -9.520349, -9.95444, 
+    -12.65309, -17.10289, -19.15069, -19.00473, -18.33129, -14.7654, 
+    -8.590974, -9.053278, -12.66171, -14.56351, -15.545, -15.24916, 
+    -15.13915, -17.51513, -22.49514, -22.32567, -20.91705, -19.59735, 
+    -18.47127, -17.5299, -16.49139, -15.54785, -14.50243, -13.0385, -12.0046, 
+    -11.59272, -11.41971, -11.30688, -11.34561, -11.32111, -11.0131, 
+    -10.54433, -10.30248, -9.962611, -9.270422, -8.789042, -8.144926, 
+    -7.598447, -7.393283, -6.735631, -6.489412, -6.888361, -6.201491, 
+    -5.515866, -5.733292, -5.670776, -5.360308, -5.062679, -5.432799,
+  -2.279375, -3.153271, -3.680311, -4.292272, -4.007803, -4.078576, 
+    -4.278783, -4.11602, -4.216989, -3.923519, -3.554533, -3.361685, 
+    -3.242198, -3.011691, -2.997619, -3.169303, -3.442623, -3.693241, 
+    -3.802428, -3.831889, -4.039387, -4.594699, -5.430861, -6.043387, 
+    -5.996266, -5.639902, -5.738358, -6.443725, -7.089478, -7.102806, 
+    -6.887275, -6.739411, -6.535378, -6.374207, -6.253458, -6.265226, 
+    -6.420107, -6.504128, -6.860433, -7.662852, -8.286895, -8.923142, 
+    -9.884188, -10.30371, -10.13223, -10.00479, -10.16386, -10.65958, 
+    -12.50877, -15.52901, -17.40381, -17.76514, -16.95955, -14.37811, 
+    -10.17542, -9.302919, -8.76011, -9.671047, -12.41132, -12.92553, 
+    -12.63796, -15.10668, -20.19423, -20.33513, -19.44676, -18.66468, 
+    -17.63511, -16.65529, -15.7916, -15.14373, -14.3861, -13.44301, 
+    -12.47171, -11.87905, -11.80997, -11.64466, -11.14333, -10.81005, 
+    -10.81476, -11.07417, -11.06825, -10.2271, -9.223374, -8.57063, 
+    -8.053851, -7.670966, -7.59062, -7.349014, -6.685269, -6.350696, 
+    -5.974068, -5.211291, -5.348726, -5.68232, -5.393399, -5.157211, -5.463655,
+  -2.685284, -3.399128, -3.838874, -4.540293, -4.140067, -4.110863, 
+    -4.387107, -4.233283, -4.51576, -4.420146, -4.030097, -3.481444, 
+    -3.148391, -3.034575, -3.167848, -3.413907, -3.658663, -3.880629, 
+    -4.009404, -4.043085, -4.220114, -4.73005, -5.602886, -6.288043, 
+    -6.241577, -6.010227, -6.329002, -7.050293, -7.63534, -7.716744, 
+    -7.529635, -7.410181, -7.166584, -6.899619, -6.733549, -6.713252, 
+    -6.86173, -6.898766, -6.905655, -7.4806, -8.431221, -9.122337, -10.07906, 
+    -10.86975, -10.91485, -10.78935, -10.87469, -11.43254, -12.82364, 
+    -14.73578, -15.68622, -15.34307, -13.74637, -9.829768, -9.552973, 
+    -9.074844, -8.948094, -8.926225, -8.939754, -9.279926, -10.41278, 
+    -13.25873, -18.18515, -18.81064, -18.44742, -18.03916, -17.24687, 
+    -16.14706, -15.21188, -14.6635, -14.09608, -13.3892, -12.60959, 
+    -12.07307, -11.89623, -11.69911, -11.30222, -10.77542, -10.81987, 
+    -11.43019, -11.32337, -10.3685, -9.470863, -8.932838, -8.552684, 
+    -7.900858, -7.17478, -7.184988, -6.948751, -6.097403, -5.604109, 
+    -5.211393, -5.144868, -5.443922, -5.436976, -5.216741, -5.453648,
+  -2.872113, -3.474056, -3.889553, -4.681868, -4.298252, -4.183548, 
+    -4.527203, -4.36964, -4.71671, -4.841489, -4.569781, -3.933499, 
+    -3.296777, -3.065451, -3.181325, -3.331571, -3.596471, -3.887084, 
+    -4.009646, -4.061067, -4.367255, -4.864005, -5.48486, -6.244854, 
+    -6.621471, -6.570823, -6.859938, -7.53179, -8.068479, -8.275468, 
+    -8.123683, -8.004375, -7.799292, -7.414682, -7.153784, -7.064853, 
+    -7.194756, -7.305423, -7.287295, -7.575735, -8.263616, -9.080944, 
+    -9.891873, -10.71881, -11.3897, -11.62136, -11.6394, -11.89334, 
+    -12.85008, -14.69046, -15.58988, -14.33267, -12.08872, -8.382477, 
+    -7.854373, -8.557164, -8.487125, -8.61063, -8.359937, -9.096452, 
+    -12.67031, -17.17252, -17.27866, -17.32872, -17.44342, -16.89108, 
+    -15.91788, -15.33523, -14.9128, -14.48553, -13.96826, -13.14537, 
+    -12.37463, -12.10427, -11.97302, -11.81087, -11.6643, -11.42571, 
+    -11.21169, -10.97595, -10.68257, -10.11149, -9.465762, -9.046415, 
+    -8.766121, -8.263052, -7.147939, -6.329007, -6.56837, -6.360162, 
+    -5.648631, -5.130349, -4.609243, -4.914158, -5.31973, -5.146383, -5.319275,
+  -2.528639, -3.273712, -3.73998, -4.560158, -4.352165, -4.364387, -4.821954, 
+    -4.586448, -4.781239, -5.049034, -4.972609, -4.431253, -3.781815, 
+    -3.336582, -3.148279, -3.207749, -3.562253, -3.900685, -3.857891, 
+    -3.860481, -4.241743, -4.749987, -5.291101, -6.040327, -6.723081, 
+    -6.889374, -7.055035, -7.757291, -8.464092, -8.766333, -8.661182, 
+    -8.568242, -8.426432, -7.975717, -7.525238, -7.322301, -7.472035, 
+    -7.645402, -7.647381, -7.833718, -8.395655, -9.006591, -9.53947, 
+    -10.21105, -11.21106, -12.08578, -12.40447, -12.45573, -12.77795, 
+    -14.1921, -15.63251, -15.38003, -13.08591, -9.013698, -8.078806, 
+    -7.975432, -7.752156, -8.578289, -8.832503, -9.137488, -12.71105, 
+    -17.61158, -17.61805, -17.06637, -16.60057, -15.68781, -14.83503, 
+    -14.68534, -14.12151, -13.81199, -13.91369, -13.18558, -12.33073, 
+    -12.19962, -12.29854, -12.14051, -11.86146, -11.29081, -10.75418, 
+    -10.63047, -10.17243, -9.706753, -9.542529, -9.050734, -8.460426, 
+    -7.872111, -7.18722, -6.561131, -6.337149, -6.072304, -5.490993, 
+    -4.761728, -4.149869, -4.534752, -5.079096, -4.976167, -5.09373,
+  -2.300714, -2.665471, -3.354517, -4.097078, -4.134211, -4.521695, 
+    -5.175752, -4.884568, -4.76075, -5.06025, -5.179258, -4.791424, -4.23215, 
+    -3.646363, -3.235118, -3.222158, -3.591378, -3.823774, -3.507189, 
+    -3.179136, -3.397982, -4.026501, -4.719042, -5.489428, -6.500951, 
+    -7.11087, -7.149636, -7.819903, -8.74667, -9.183474, -9.185157, -9.07925, 
+    -9.021246, -8.593808, -7.964221, -7.632505, -7.786206, -7.991706, 
+    -7.968918, -7.958665, -8.378105, -9.079967, -9.493144, -9.697984, 
+    -10.44697, -11.69873, -12.62257, -12.99539, -13.18852, -13.67697, 
+    -14.44055, -14.76197, -13.92662, -11.02661, -9.742256, -9.001031, 
+    -8.472855, -8.111645, -8.482117, -8.531803, -11.24095, -17.36199, 
+    -17.71643, -17.00768, -16.31888, -15.62434, -14.99116, -14.37794, 
+    -13.89159, -13.6346, -13.45105, -13.15162, -12.67255, -12.17955, 
+    -11.98847, -12.07921, -12.0229, -11.76768, -11.08292, -10.33336, 
+    -9.859913, -9.469995, -9.120094, -8.794884, -8.293944, -7.638684, 
+    -7.043698, -6.394662, -5.970387, -5.575963, -4.730827, -4.30198, 
+    -4.094802, -4.254901, -4.807841, -4.748198, -4.800164,
+  -2.150535, -2.387034, -2.59061, -2.993021, -3.008143, -4.186115, -5.248224, 
+    -5.106231, -4.691639, -4.924357, -5.256593, -4.903253, -4.398723, 
+    -3.810477, -3.340045, -3.241329, -3.525884, -3.731151, -3.37708, 
+    -2.70474, -2.549387, -3.063421, -4.001658, -4.898072, -5.987545, 
+    -7.274027, -7.490321, -7.841377, -8.788152, -9.39206, -9.62514, 
+    -9.574439, -9.553595, -9.237511, -8.640918, -8.213504, -8.224322, 
+    -8.35439, -8.270995, -8.117847, -8.305896, -8.97497, -9.568159, 
+    -9.580517, -9.638389, -10.53803, -11.95059, -13.10466, -13.66817, 
+    -13.96754, -14.26779, -13.86718, -12.12995, -9.117806, -10.03469, 
+    -10.04451, -9.906649, -9.369227, -8.04866, -10.02749, -16.6654, 
+    -17.71109, -17.30872, -16.84531, -16.22762, -15.80787, -15.24283, 
+    -14.7974, -14.46933, -14.07026, -13.60587, -12.91058, -12.35056, 
+    -11.93874, -11.54276, -11.45429, -11.59932, -11.59719, -10.79851, 
+    -10.08734, -9.852613, -9.442143, -9.105585, -8.703135, -7.789868, 
+    -6.925713, -6.691404, -6.184275, -5.478472, -5.15246, -4.642426, 
+    -4.156614, -3.58408, -3.751225, -4.442827, -4.462323, -4.43855,
+  -2.072982, -2.297946, -2.571229, -3.172317, -2.798287, -3.03693, -3.990454, 
+    -4.833124, -4.565094, -4.654925, -5.290046, -4.92264, -4.321865, 
+    -3.78533, -3.264212, -3.044259, -3.263675, -3.586024, -3.560689, 
+    -2.813497, -2.354491, -2.574974, -3.430088, -4.475162, -5.228861, 
+    -6.862261, -7.713116, -7.804537, -8.562071, -9.31207, -9.862984, 
+    -10.0163, -10.05802, -9.884173, -9.536489, -9.083009, -8.774212, 
+    -8.696671, -8.540557, -8.354292, -8.412802, -8.839717, -9.377318, 
+    -9.513403, -9.24604, -9.315605, -10.50277, -12.31566, -13.53891, 
+    -13.87968, -13.92056, -13.2598, -11.36616, -8.286242, -9.169912, 
+    -9.11471, -8.858292, -8.283496, -8.362351, -10.11673, -15.68994, 
+    -16.84285, -17.10807, -16.85265, -15.89351, -15.14783, -15.01757, 
+    -14.78582, -14.33205, -14.09396, -13.63058, -12.98161, -12.32066, 
+    -11.70797, -11.22157, -11.1417, -11.23667, -10.95689, -10.48681, 
+    -10.06094, -9.615594, -9.164505, -8.728333, -8.244786, -7.361717, 
+    -6.611012, -6.293716, -5.969157, -5.510323, -5.069173, -4.610286, 
+    -3.786499, -2.761153, -3.092911, -4.029468, -4.047021, -3.964593,
+  -2.166959, -2.35691, -2.516965, -3.100775, -2.902114, -3.397007, -3.604734, 
+    -3.59088, -4.217923, -4.319399, -5.131652, -5.053335, -4.310916, 
+    -3.694756, -3.156392, -2.843822, -2.938327, -3.161349, -3.494369, 
+    -2.914743, -2.454884, -2.729539, -2.521559, -3.116543, -3.987125, 
+    -4.604992, -6.970166, -7.544708, -8.236564, -9.042207, -9.881004, 
+    -10.32499, -10.42711, -10.41337, -10.37711, -10.04923, -9.42883, 
+    -9.042304, -8.811674, -8.647168, -8.628797, -8.719244, -8.984893, 
+    -9.19782, -9.112963, -8.791203, -9.040131, -10.46603, -12.4827, 
+    -13.58949, -13.36226, -11.93324, -8.175974, -8.089052, -9.147234, 
+    -7.808697, -6.312327, -7.204485, -8.317599, -11.01597, -16.27229, 
+    -16.32781, -15.91876, -16.55708, -16.66759, -15.53333, -14.32017, 
+    -13.58542, -13.60128, -13.6141, -13.22893, -12.67995, -12.06368, 
+    -11.66782, -11.42074, -11.26015, -11.03331, -10.50867, -9.857684, 
+    -9.715021, -9.566641, -8.787635, -8.15809, -7.872181, -7.235037, 
+    -6.49489, -6.010169, -5.734652, -5.530203, -5.087452, -4.375058, 
+    -3.363074, -2.351571, -2.676396, -3.475887, -3.394158, -3.229476,
+  -2.250063, -2.411179, -2.550369, -3.011039, -2.533615, -3.212647, 
+    -3.662837, -3.355272, -3.970891, -3.884632, -4.429137, -4.882342, 
+    -4.449152, -3.858811, -3.335967, -2.817604, -2.709558, -2.574652, 
+    -3.081225, -2.929985, -2.525093, -2.45486, -2.463151, -2.573002, 
+    -3.222905, -3.791803, -4.321813, -5.178092, -7.601442, -8.692237, 
+    -9.595513, -10.30255, -10.51244, -10.6135, -10.75379, -10.74033, 
+    -10.20096, -9.539585, -9.125374, -8.91475, -8.855307, -8.711838, 
+    -8.504423, -8.239406, -8.187529, -8.20116, -8.147841, -8.540135, 
+    -10.25089, -11.94799, -11.51693, -9.015191, -10.06999, -10.16472, 
+    -9.355367, -7.510838, -6.02371, -5.543337, -8.786508, -15.82716, 
+    -16.77733, -16.41263, -16.2825, -16.27843, -16.0986, -15.40385, -14.6246, 
+    -14.01937, -13.6065, -13.13375, -12.91684, -12.71213, -12.13233, 
+    -11.62727, -11.23971, -10.98327, -10.78976, -10.49667, -10.11101, 
+    -9.7093, -9.428095, -9.193932, -8.753998, -7.948802, -7.190006, 
+    -6.540374, -6.246126, -5.932, -5.433962, -4.946847, -4.301935, -3.423698, 
+    -2.44805, -2.472339, -2.757487, -2.500685, -2.249529,
+  -2.348948, -2.509741, -2.650744, -3.2149, -2.326544, -2.482653, -3.004978, 
+    -2.821869, -3.910569, -3.101309, -2.788686, -3.140167, -4.223465, 
+    -4.042813, -3.549345, -2.300242, -2.118994, -1.894511, -2.145733, 
+    -2.858892, -2.27647, -2.400605, -2.642448, -3.304099, -3.34427, 
+    -3.296313, -3.673761, -4.355373, -6.655795, -8.049194, -9.094007, 
+    -9.936537, -10.28394, -10.42731, -10.54871, -10.71737, -10.6392, 
+    -10.14114, -9.578343, -9.103103, -8.917157, -8.776501, -8.225613, 
+    -6.858469, -4.956009, -6.529968, -7.124541, -7.423961, -8.035917, 
+    -8.761321, -7.604517, -9.278239, -10.40521, -10.33828, -9.62648, 
+    -7.797393, -6.884271, -6.534644, -9.020077, -15.3024, -16.22679, 
+    -16.28387, -16.38888, -16.08038, -15.59006, -14.94482, -14.53162, 
+    -14.15489, -13.79779, -13.55647, -13.26486, -12.77974, -12.15322, 
+    -11.82712, -11.56985, -11.23791, -11.14451, -10.81541, -10.37688, 
+    -10.1249, -9.751625, -9.372272, -9.055326, -8.586525, -8.04259, 
+    -7.496799, -7.03926, -6.526282, -5.963027, -5.487792, -4.81467, 
+    -3.560039, -2.553835, -2.365555, -2.149199, -1.688328, -1.350414,
+  -2.429904, -2.604636, -2.759046, -3.383282, -2.728578, -2.58268, -3.126575, 
+    -2.766592, -2.85986, -3.296376, -3.032158, -2.802758, -2.879115, 
+    -2.914925, -2.915093, -2.712546, -2.863188, -2.892922, -2.620999, 
+    -2.744219, -2.757373, -2.52738, -2.849676, -2.666645, -2.709231, 
+    -2.753534, -3.096775, -3.988061, -4.0264, -6.575939, -8.124221, 
+    -9.319768, -10.07613, -10.11128, -10.0572, -10.086, -10.20995, -10.08401, 
+    -9.791573, -9.186537, -8.863377, -8.669829, -7.436309, -4.819393, 
+    -4.081238, -3.93551, -4.39178, -6.233175, -6.459189, -5.535666, 
+    -5.930253, -7.245406, -9.756635, -10.28621, -10.09545, -7.089776, 
+    -6.112787, -7.057584, -10.19634, -15.50156, -15.57456, -16.33595, 
+    -17.10895, -16.70148, -16.10003, -15.30165, -14.88966, -14.7194, 
+    -14.42413, -14.07453, -13.66949, -13.10336, -12.39781, -11.95392, 
+    -12.04131, -12.11491, -11.86715, -11.51805, -11.14966, -10.70821, 
+    -10.17861, -9.795784, -9.443415, -9.044938, -8.728077, -8.48512, 
+    -7.978042, -7.230586, -6.649241, -6.068987, -5.307425, -4.368681, 
+    -3.116683, -2.295027, -1.904927, -1.307519, -0.8970982,
+  -2.634035, -2.744924, -2.883061, -3.419007, -2.832112, -2.606047, 
+    -2.970268, -2.77112, -2.780115, -2.785755, -2.893783, -2.764949, 
+    -3.059232, -3.635479, -3.617756, -3.448155, -3.247283, -3.141663, 
+    -3.075977, -2.728349, -2.311055, -2.354212, -2.933975, -2.618657, 
+    -2.951838, -3.247179, -2.608413, -3.036559, -4.858167, -5.559178, 
+    -6.74726, -7.898776, -9.431591, -9.889681, -9.189342, -8.483749, 
+    -8.685017, -8.88049, -9.004688, -8.765969, -8.244291, -7.678886, 
+    -5.190864, -4.444455, -4.289807, -4.252622, -4.305322, -4.299049, 
+    -4.430155, -4.980485, -6.264537, -8.473801, -9.123649, -9.107359, 
+    -7.265164, -5.709288, -5.732644, -9.066195, -16.11954, -16.70013, 
+    -15.39693, -15.55905, -16.50465, -16.93462, -16.91897, -16.6707, 
+    -16.11296, -15.47244, -15.13186, -15.12647, -14.84795, -14.00774, 
+    -13.06976, -12.46343, -12.38257, -12.31172, -12.24522, -12.1309, 
+    -11.72006, -11.18401, -10.65721, -10.37514, -10.06034, -9.633746, 
+    -9.336411, -9.017571, -8.609369, -8.000381, -7.487474, -6.985374, 
+    -6.167286, -5.157676, -4.080471, -3.157722, -2.369854, -1.647331, 
+    -1.143396,
+  -2.869303, -2.929874, -3.029265, -3.425873, -2.91247, -3.143793, -3.995463, 
+    -3.827652, -3.072331, -2.89339, -2.987325, -2.905979, -3.005262, 
+    -3.153544, -3.288946, -3.619538, -3.654186, -3.463629, -3.307779, 
+    -3.078035, -2.750496, -2.744711, -2.66524, -2.309547, -1.958082, 
+    -2.310647, -2.477884, -2.388613, -3.118914, -4.84845, -5.041022, 
+    -4.390713, -5.629108, -8.687071, -6.60051, -4.403988, -4.840574, 
+    -6.744528, -5.993195, -7.310368, -5.195911, -4.858305, -5.35393, 
+    -5.090992, -4.68972, -4.490619, -4.898041, -5.614891, -5.683162, 
+    -5.878451, -7.008182, -7.441657, -7.745823, -7.508602, -7.635315, 
+    -6.443143, -5.871265, -9.252432, -16.0189, -17.20973, -15.95842, 
+    -15.38839, -15.76771, -16.08518, -16.81131, -17.71298, -17.59447, 
+    -16.69097, -15.95125, -15.88269, -16.081, -15.5519, -14.6718, -13.937, 
+    -13.50063, -13.04548, -12.61852, -12.50409, -12.21137, -11.78075, 
+    -11.34554, -11.04236, -10.90294, -10.66315, -10.326, -9.891843, -9.42398, 
+    -8.954098, -8.410637, -7.769249, -7.065986, -6.384715, -5.567064, 
+    -4.512321, -3.459878, -2.59466, -1.962473,
+  -3.060766, -3.106582, -3.230811, -3.534334, -2.822684, -2.365513, 
+    -2.717524, -3.3188, -3.116579, -3.062114, -3.237257, -3.194262, 
+    -3.229892, -3.441942, -3.446301, -3.283625, -3.690492, -3.648401, 
+    -3.385327, -3.274581, -3.426902, -3.827667, -3.979703, -3.422634, 
+    -3.391185, -2.73286, -2.743517, -3.059965, -3.249082, -3.579859, 
+    -4.073683, -4.654936, -5.388829, -5.491171, -5.361012, -4.397711, 
+    -3.665258, -4.036987, -5.324967, -5.467679, -5.074867, -4.822855, 
+    -6.566708, -7.247667, -6.552033, -5.452467, -5.294018, -6.104814, 
+    -8.096228, -7.745422, -7.422036, -6.702874, -5.492284, -6.455667, 
+    -7.772553, -7.520695, -6.307196, -8.268963, -14.98413, -17.02736, 
+    -17.17767, -16.64769, -16.12854, -15.97857, -16.46889, -17.14089, 
+    -17.5606, -17.49016, -16.75952, -16.44346, -16.54595, -16.35742, 
+    -16.00181, -15.55497, -14.90433, -14.16883, -13.66756, -13.28808, 
+    -12.81465, -12.51033, -12.32997, -12.05149, -11.78442, -11.36219, 
+    -10.99537, -10.87921, -10.51342, -9.922091, -9.311587, -8.768688, 
+    -8.29829, -7.766167, -7.031336, -5.945168, -4.769338, -3.804629, -3.068453,
+  -3.17697, -3.235301, -3.378314, -3.662479, -3.040124, -2.623271, -2.768687, 
+    -2.665861, -3.038705, -3.146918, -3.326503, -3.410999, -3.275039, 
+    -3.599719, -4.53217, -3.592547, -3.284917, -3.393353, -3.612647, 
+    -3.289687, -2.968332, -3.804098, -3.167586, -3.340004, -4.077616, 
+    -3.708085, -3.196842, -3.278975, -3.588805, -3.59674, -4.180296, 
+    -5.484936, -4.473932, -4.576058, -5.182078, -4.790655, -4.381451, 
+    -3.347867, -3.38129, -4.057354, -5.279296, -6.267128, -6.966652, 
+    -7.517803, -7.382931, -6.859075, -6.521919, -6.621182, -7.190981, 
+    -7.933173, -7.965982, -6.977516, -5.446842, -5.633143, -6.471066, 
+    -6.845708, -6.643546, -8.347396, -14.33938, -16.15528, -16.76259, 
+    -16.78087, -16.46794, -16.57494, -16.83375, -17.12631, -17.33113, 
+    -17.27767, -16.99104, -16.45098, -16.21017, -16.46337, -16.28697, 
+    -15.64185, -15.23117, -14.93628, -14.41666, -13.84932, -13.49255, 
+    -13.41391, -13.3163, -13.0334, -12.61347, -12.2303, -11.91249, -11.57994, 
+    -11.23964, -10.75926, -10.12984, -9.720523, -9.424342, -8.987839, 
+    -8.309819, -7.182732, -5.979076, -4.95232, -4.168316,
+  -3.236094, -3.256568, -3.450784, -3.715048, -3.207124, -3.208504, -3.01162, 
+    -2.927661, -3.503013, -3.377151, -3.353923, -3.528125, -3.477005, 
+    -3.326581, -3.456755, -3.558289, -3.601897, -4.30818, -4.2204, -3.867176, 
+    -3.382317, -3.891793, -3.332101, -3.721033, -5.090024, -4.788775, 
+    -4.620351, -4.043558, -5.009909, -4.170755, -3.938339, -4.223189, 
+    -4.045285, -4.211215, -5.132674, -6.241928, -4.474917, -3.12263, 
+    -3.114447, -4.179223, -5.124577, -6.561204, -6.925554, -6.829961, 
+    -6.80107, -6.264624, -5.547017, -5.692616, -6.90968, -7.741309, 
+    -8.059885, -7.421472, -5.725614, -5.779598, -6.168829, -6.181449, 
+    -6.314731, -7.834342, -13.14108, -15.0901, -15.58914, -16.14495, 
+    -16.37904, -16.75237, -16.97916, -16.9608, -17.02864, -17.15215, 
+    -17.12715, -16.71551, -16.18452, -15.91997, -15.79932, -15.62273, 
+    -15.34962, -14.95911, -14.519, -14.08082, -13.92177, -13.77233, 
+    -13.49513, -13.52631, -13.40624, -12.90657, -12.50979, -12.31779, 
+    -11.93439, -11.34164, -10.89157, -10.59889, -10.41369, -10.15571, 
+    -9.377391, -8.148932, -6.947942, -5.924839, -5.151537,
+  -3.050518, -3.21444, -3.488352, -3.777919, -3.137366, -3.363416, -3.979454, 
+    -3.36649, -4.878246, -4.899405, -3.437964, -3.396836, -3.696989, 
+    -3.57069, -3.532623, -3.529279, -4.002221, -4.651782, -4.489495, 
+    -4.550072, -4.209037, -3.357715, -3.061626, -3.541636, -5.148947, 
+    -5.512554, -5.034633, -4.191177, -5.457334, -5.713302, -4.454353, 
+    -4.223484, -3.851537, -3.647329, -4.271687, -6.023402, -6.53555, 
+    -4.099978, -3.375535, -3.574751, -3.678983, -4.608479, -5.098522, 
+    -4.828542, -4.8602, -4.688136, -4.561306, -5.287958, -6.148234, 
+    -6.905537, -7.479268, -7.77324, -7.589323, -7.196573, -7.208224, 
+    -6.950527, -5.728088, -5.265079, -8.238292, -14.25826, -15.09949, 
+    -15.77216, -16.47743, -16.64946, -16.7855, -16.63243, -16.48183, 
+    -16.63122, -16.8729, -16.7793, -16.35275, -15.78412, -15.3545, -15.1324, 
+    -14.95845, -14.74043, -14.44007, -14.12465, -13.95427, -13.74125, 
+    -13.45936, -13.33702, -13.24455, -13.06324, -12.76831, -12.5475, 
+    -12.21096, -11.72166, -11.3718, -11.28502, -11.34184, -11.03786, 
+    -10.14768, -8.954267, -7.855469, -6.973465, -6.29178,
+  -2.918828, -3.203627, -3.494951, -3.781448, -3.378395, -3.261448, 
+    -3.229021, -3.246932, -3.864572, -4.941141, -3.928006, -3.362294, 
+    -3.591539, -3.520502, -3.411599, -3.398197, -3.192653, -3.258827, 
+    -3.783314, -4.568235, -4.766994, -4.725737, -3.36193, -3.298743, 
+    -4.597283, -4.955467, -5.38402, -5.593391, -5.680936, -5.685575, 
+    -4.542322, -4.306135, -4.088882, -3.872022, -3.953456, -4.608884, 
+    -5.678197, -5.025103, -3.75384, -3.452322, -2.935977, -3.729217, 
+    -4.818762, -3.465401, -3.429369, -4.828146, -4.743748, -4.987288, 
+    -6.546547, -7.432754, -7.557544, -7.80505, -7.904535, -7.595969, 
+    -7.222698, -6.550074, -5.326098, -4.877532, -7.375946, -13.80572, 
+    -15.11403, -15.52994, -16.29329, -16.3976, -16.40627, -16.25312, 
+    -16.1098, -16.20947, -16.45935, -16.52545, -16.20402, -15.61793, 
+    -15.13496, -14.89485, -14.68965, -14.39884, -14.15132, -14.02956, 
+    -13.90004, -13.61405, -13.26445, -13.04599, -12.94337, -12.85797, 
+    -12.63998, -12.43259, -12.16118, -11.83304, -11.61313, -11.45673, 
+    -11.59064, -11.47641, -10.64364, -9.606147, -8.708169, -7.975691, 
+    -7.411026,
+  -2.829356, -3.092111, -3.471886, -3.860668, -3.528217, -3.47931, -3.542162, 
+    -4.575068, -5.236575, -5.385655, -5.266974, -3.792269, -3.332165, 
+    -3.513299, -3.679057, -3.276615, -3.343961, -3.573731, -3.754542, 
+    -4.075203, -4.597305, -3.883077, -3.497361, -3.548579, -4.07223, 
+    -3.567319, -4.564429, -5.170462, -5.504182, -5.624491, -4.636893, 
+    -4.479827, -4.401468, -4.389858, -4.455868, -4.753122, -5.479926, 
+    -5.697964, -5.145736, -5.236187, -4.436554, -4.774706, -4.943869, 
+    -2.57211, -2.366133, -3.64991, -4.139954, -5.461542, -7.596853, 
+    -8.035503, -7.903484, -7.912119, -8.005527, -7.945887, -7.573943, 
+    -6.856236, -5.672669, -4.32351, -5.870592, -11.8235, -14.60438, 
+    -15.20188, -15.67295, -16.01165, -16.07332, -16.0258, -15.89294, 
+    -15.8838, -15.94106, -15.99351, -15.8609, -15.42096, -14.95459, 
+    -14.63972, -14.4033, -14.16325, -13.93517, -13.78575, -13.66129, 
+    -13.45154, -13.18767, -12.9751, -12.8391, -12.6793, -12.42221, -12.18986, 
+    -11.99052, -11.79248, -11.57192, -11.39352, -11.3383, -11.21143, 
+    -10.78767, -10.07785, -9.322719, -8.750864, -8.339601,
+  -2.733491, -3.045889, -3.540309, -4.176412, -3.554253, -3.72208, -4.031065, 
+    -3.848445, -4.818313, -4.94909, -5.286839, -5.148674, -3.68817, 
+    -3.307348, -3.214744, -3.255947, -3.426967, -3.523421, -3.977293, 
+    -4.799983, -5.116804, -4.898954, -3.976874, -3.724801, -3.598695, 
+    -3.468332, -3.453547, -3.519497, -3.938231, -4.305315, -4.510535, 
+    -4.681291, -4.586789, -4.552214, -4.59684, -4.673324, -5.414745, 
+    -6.104391, -5.955008, -6.176867, -4.889443, -4.871267, -4.043789, 
+    -1.911861, -2.064172, -3.126993, -3.14677, -4.718718, -7.411873, 
+    -8.427791, -8.641112, -8.346436, -8.074104, -7.78544, -7.44979, 
+    -7.132402, -6.249583, -4.420145, -3.608529, -5.70354, -12.12634, 
+    -14.79303, -15.25003, -15.51564, -15.60305, -15.6161, -15.57728, 
+    -15.50828, -15.4575, -15.3983, -15.27983, -14.9904, -14.65224, -14.36228, 
+    -14.06772, -13.77972, -13.62441, -13.56094, -13.42589, -13.22448, 
+    -13.02706, -12.85224, -12.74686, -12.64161, -12.42531, -12.13469, 
+    -11.85145, -11.61051, -11.33985, -11.07496, -10.91483, -10.76766, 
+    -10.63852, -10.26505, -9.661813, -9.168307, -8.834385,
+  -2.73211, -3.126409, -3.656756, -4.171006, -3.544415, -3.594608, -3.858399, 
+    -3.75369, -4.175993, -3.841391, -3.807606, -5.181299, -5.064253, 
+    -3.593224, -3.112655, -3.290947, -3.386717, -3.650688, -4.42291, 
+    -4.733745, -4.899977, -5.084167, -4.71936, -4.165064, -4.604935, 
+    -4.346467, -3.826414, -3.703693, -4.259015, -5.363925, -4.619077, 
+    -4.61382, -4.518747, -4.35828, -4.487733, -4.475043, -5.28475, -7.530933, 
+    -7.132992, -6.569011, -6.37687, -6.234659, -5.435692, -3.435664, 
+    -3.35381, -3.956083, -3.25476, -4.259432, -6.878255, -8.078676, 
+    -8.701645, -8.817058, -8.32329, -7.92306, -7.586858, -7.268135, 
+    -6.967092, -6.18144, -4.784066, -4.238657, -6.059709, -12.08386, 
+    -14.52861, -14.96864, -15.04912, -15.03402, -15.12288, -15.09021, 
+    -15.02033, -14.92282, -14.78685, -14.57344, -14.2924, -14.00938, 
+    -13.67799, -13.35443, -13.21272, -13.20782, -13.15946, -13.04328, 
+    -12.83874, -12.56321, -12.35852, -12.24434, -12.12948, -11.9526, 
+    -11.71263, -11.44661, -11.14248, -10.83926, -10.62659, -10.47773, 
+    -10.33303, -10.03541, -9.600209, -9.207354, -8.913115,
+  -2.561598, -3.013966, -3.616708, -4.122103, -3.572344, -3.654784, 
+    -3.861031, -3.55143, -3.645507, -3.699033, -4.376213, -3.76064, 
+    -3.802097, -3.452064, -3.011397, -3.23752, -3.155381, -3.365687, 
+    -4.171987, -4.62619, -4.908259, -5.180964, -4.783812, -4.131004, 
+    -4.579957, -4.440488, -3.770622, -4.107668, -4.91492, -4.179615, 
+    -4.315217, -4.430492, -4.299831, -4.32882, -4.900839, -5.046681, 
+    -4.830961, -5.63029, -6.913524, -6.105035, -5.847404, -6.22069, 
+    -5.706728, -4.493476, -5.177369, -4.957399, -5.464188, -6.552017, 
+    -6.764222, -7.127502, -7.133855, -8.312338, -8.399853, -7.896469, 
+    -7.391088, -7.233272, -7.234483, -6.844155, -5.395337, -4.798293, 
+    -4.755211, -6.338437, -11.34948, -13.52407, -14.32946, -14.4782, 
+    -14.58116, -14.67679, -14.56194, -14.44646, -14.33014, -14.15487, 
+    -13.90076, -13.64028, -13.34106, -12.97176, -12.68077, -12.60524, 
+    -12.72197, -12.83494, -12.68135, -12.32125, -12.02132, -11.8645, 
+    -11.77846, -11.63171, -11.41973, -11.22345, -10.99867, -10.68053, 
+    -10.34731, -10.11922, -9.969619, -9.70623, -9.338108, -8.99017, -8.684552,
+  -2.035194, -2.463132, -3.469218, -4.071081, -3.534862, -3.750427, 
+    -4.484547, -4.238032, -4.594357, -3.50921, -3.391634, -3.724575, 
+    -3.622182, -3.333714, -2.979967, -2.940464, -2.926057, -2.89837, 
+    -3.339186, -4.264047, -4.774427, -5.040943, -5.067657, -4.680867, 
+    -4.100709, -4.570657, -4.277908, -4.022912, -4.944117, -4.26442, 
+    -4.036117, -4.049277, -4.201398, -4.160502, -3.939455, -3.906172, 
+    -3.761694, -4.442815, -6.026674, -5.187213, -4.822844, -4.727023, 
+    -4.562571, -4.520993, -4.8774, -5.572106, -5.774491, -5.729343, 
+    -6.394112, -7.457083, -6.714627, -6.524076, -7.158135, -7.707252, 
+    -6.394635, -7.027514, -7.304561, -7.421878, -7.022438, -5.541746, 
+    -5.093822, -5.052638, -5.396922, -7.384212, -12.45964, -13.93241, 
+    -13.99758, -14.16103, -14.10286, -13.9339, -13.86719, -13.74296, 
+    -13.58592, -13.34704, -13.00953, -12.5736, -12.19428, -12.03716, 
+    -12.10102, -12.17286, -12.09179, -11.86417, -11.63459, -11.5268, 
+    -11.45105, -11.32192, -11.15873, -11.01143, -10.80882, -10.4614, 
+    -10.07204, -9.798442, -9.641404, -9.402598, -9.042787, -8.680051, 
+    -8.318684,
+  -1.972379, -2.445287, -3.43617, -4.145401, -3.643386, -3.667565, -3.872239, 
+    -4.023377, -4.685751, -3.648323, -3.595759, -3.731989, -3.475185, 
+    -3.308064, -2.927321, -2.672131, -2.738575, -2.698186, -2.923384, 
+    -3.354776, -4.360626, -4.841303, -4.98106, -4.985682, -4.747324, 
+    -4.559903, -4.525929, -3.967027, -3.930505, -4.101001, -3.906534, 
+    -3.839873, -4.026677, -4.053035, -4.126678, -4.215136, -4.15793, 
+    -4.475963, -5.107701, -4.723448, -4.823244, -5.001778, -4.968681, 
+    -4.867028, -5.103469, -6.105261, -7.632628, -6.18982, -5.99322, -6.47488, 
+    -6.761218, -6.907729, -7.141854, -8.002911, -7.605082, -7.242252, 
+    -6.816036, -6.319417, -7.388411, -6.953935, -5.656011, -5.332335, 
+    -5.388937, -5.764675, -7.296981, -12.19732, -13.56968, -13.6361, 
+    -13.69576, -13.48415, -13.40827, -13.3222, -13.22503, -13.03256, 
+    -12.67226, -12.26713, -11.9477, -11.76077, -11.62106, -11.44875, 
+    -11.27824, -11.15323, -11.11482, -11.09999, -11.02127, -10.8893, 
+    -10.76023, -10.62795, -10.44248, -10.16418, -9.836349, -9.586587, 
+    -9.415648, -9.183513, -8.817082, -8.424476, -7.989732,
+  -2.256331, -2.827713, -3.46909, -4.127633, -3.641591, -3.790447, -4.099535, 
+    -3.82623, -4.2655, -4.936731, -4.986526, -4.191251, -4.340137, -3.374099, 
+    -2.846342, -2.660408, -2.637877, -2.62872, -2.799877, -3.172938, 
+    -3.988744, -4.707987, -4.916845, -4.979568, -4.877536, -4.413422, 
+    -4.009445, -4.065084, -4.097684, -4.002954, -3.939155, -4.328716, 
+    -4.254833, -3.898171, -3.958033, -4.085786, -4.139604, -4.285423, 
+    -4.318771, -4.297903, -4.606936, -4.973828, -5.245738, -5.185661, 
+    -5.292231, -5.70677, -6.584906, -7.774147, -6.220239, -6.112813, 
+    -6.421302, -6.547486, -6.511312, -6.695776, -7.432317, -7.33031, 
+    -6.808993, -6.339066, -7.387846, -7.588905, -7.562576, -7.014694, 
+    -5.726175, -5.592984, -5.685064, -7.493808, -12.43578, -13.36127, 
+    -13.31134, -13.26735, -13.07011, -12.93598, -12.73748, -12.49908, 
+    -12.19479, -11.91303, -11.6939, -11.53611, -11.35111, -11.06661, 
+    -10.72211, -10.47876, -10.46465, -10.51787, -10.49592, -10.38614, 
+    -10.27589, -10.1405, -9.966494, -9.804215, -9.606061, -9.414631, 
+    -9.248649, -9.023121, -8.648286, -8.231415, -7.744238,
+  -2.41522, -2.988869, -3.441218, -3.840219, -3.499137, -3.271296, -3.415487, 
+    -3.258342, -3.681212, -4.109995, -4.047446, -4.413091, -4.518715, 
+    -3.42153, -2.987106, -2.79453, -2.75161, -2.649855, -2.523284, -3.018837, 
+    -3.831364, -4.445542, -4.872944, -4.983931, -4.923527, -4.485118, 
+    -3.910778, -4.022777, -4.10916, -3.994612, -4.023961, -4.274962, 
+    -3.750416, -3.904934, -4.078292, -4.186911, -4.203399, -4.422092, 
+    -4.558188, -4.166245, -4.306947, -4.73852, -5.599487, -6.963798, 
+    -5.877051, -6.029398, -6.628066, -7.234849, -6.408761, -6.197476, 
+    -6.240397, -6.251882, -6.284082, -6.628118, -7.650504, -7.738198, 
+    -7.205938, -6.623834, -7.357876, -7.502404, -7.534349, -7.539782, 
+    -7.06438, -5.847339, -5.5947, -6.776415, -10.92403, -12.57855, -12.94473, 
+    -13.10445, -12.91767, -12.60114, -12.29664, -11.95449, -11.67539, 
+    -11.44895, -11.25574, -11.11155, -10.9601, -10.75384, -10.48194, 
+    -10.16915, -9.923082, -9.815558, -9.809667, -9.801124, -9.752033, 
+    -9.622169, -9.471576, -9.394591, -9.324224, -9.20586, -9.039587, 
+    -8.808473, -8.447998, -8.02167, -7.486723,
+  -2.529568, -3.067483, -3.488848, -3.934615, -3.824931, -3.755489, 
+    -4.163845, -4.012204, -4.413743, -4.582863, -5.023939, -4.723392, 
+    -4.015284, -3.574559, -3.34092, -3.117824, -3.006121, -2.768619, 
+    -2.406154, -2.782001, -3.651775, -4.104361, -4.481802, -4.713855, 
+    -4.724497, -4.560582, -4.318225, -4.001194, -4.076271, -3.925011, 
+    -3.981368, -4.564434, -4.451643, -4.082094, -4.233024, -4.298922, 
+    -4.156777, -4.219621, -4.745285, -4.521436, -4.229061, -4.540448, 
+    -4.880615, -5.488431, -6.319865, -5.937217, -6.360219, -6.942041, 
+    -7.750891, -7.363712, -6.353934, -6.150037, -6.101838, -6.012284, 
+    -6.003132, -6.266492, -6.771876, -7.640355, -7.511811, -7.395821, 
+    -7.403138, -7.435215, -7.383402, -7.175572, -6.587197, -5.493339, 
+    -6.390204, -10.23829, -11.79975, -12.51291, -12.69703, -12.34221, 
+    -11.97783, -11.5847, -11.26307, -11.10181, -10.87458, -10.64182, 
+    -10.47591, -10.28601, -10.10083, -9.900456, -9.631404, -9.347743, 
+    -9.180897, -9.169559, -9.196772, -9.106351, -8.964683, -8.911151, 
+    -8.915126, -8.892506, -8.786695, -8.568946, -8.220338, -7.795135, 
+    -7.220349,
+  -2.60877, -3.090794, -3.556714, -4.107306, -3.710649, -3.586445, -4.741542, 
+    -5.146989, -4.307967, -3.629075, -3.851773, -3.980297, -4.137279, 
+    -3.882031, -3.774947, -3.489321, -3.288896, -3.172182, -2.798673, 
+    -2.742855, -3.492342, -3.794237, -3.987335, -4.309968, -4.316124, 
+    -4.322369, -4.156452, -3.849495, -4.113735, -4.444683, -4.403797, 
+    -4.373892, -4.004459, -4.237934, -4.517341, -4.702786, -4.712553, 
+    -4.619328, -4.857677, -4.973384, -4.73724, -4.87097, -5.119823, 
+    -5.251171, -5.368086, -5.557633, -6.119604, -6.607146, -6.907224, 
+    -6.661556, -6.496468, -6.299494, -5.964008, -5.877532, -5.845687, 
+    -6.268467, -7.32573, -7.42114, -7.324547, -6.935109, -6.369624, 
+    -7.235105, -7.359132, -7.242317, -7.152161, -6.812152, -6.153431, 
+    -5.978632, -9.04244, -10.47267, -11.44908, -11.97038, -11.76897, 
+    -11.40467, -10.96974, -10.75106, -10.58919, -10.315, -10.10818, 
+    -9.897186, -9.664447, -9.442695, -9.243031, -9.02838, -8.802485, 
+    -8.650652, -8.628989, -8.588837, -8.482174, -8.429297, -8.452389, 
+    -8.487399, -8.475142, -8.291357, -7.92889, -7.517806, -6.930998,
+  -2.643054, -3.121324, -3.574268, -4.04397, -3.864501, -4.344724, -5.296543, 
+    -4.909813, -3.873847, -3.74979, -3.806046, -3.855633, -4.11558, 
+    -4.217997, -4.17416, -3.800897, -3.639356, -3.572868, -3.595514, 
+    -3.749402, -3.554736, -3.522208, -3.636109, -3.834239, -3.889308, 
+    -4.028011, -3.921114, -3.567996, -3.853715, -4.37898, -4.354899, 
+    -4.250454, -3.944823, -4.197597, -4.490495, -4.650046, -5.030791, 
+    -5.912834, -6.189085, -6.304373, -6.152742, -6.171178, -6.163027, 
+    -5.479813, -5.407218, -5.660666, -6.344137, -6.889365, -7.441877, 
+    -7.887865, -7.199722, -7.988286, -6.252704, -5.903657, -5.818604, 
+    -5.725269, -5.768, -5.980323, -6.622336, -6.073909, -6.206593, -7.240613, 
+    -7.373718, -7.094338, -6.903389, -6.756175, -6.689497, -6.304117, 
+    -5.729451, -5.121118, -6.318638, -10.25689, -11.29533, -11.18692, 
+    -10.83456, -10.38246, -10.19291, -10.0154, -9.797377, -9.594711, 
+    -9.367661, -9.084867, -8.824371, -8.603743, -8.435801, -8.289389, 
+    -8.192727, -8.116862, -8.018918, -7.964989, -8.003234, -8.06945, 
+    -8.093929, -7.918913, -7.555196, -7.177666, -6.619637,
+  -2.830788, -3.180224, -3.477597, -3.763719, -3.758113, -4.690474, 
+    -4.639873, -3.437491, -3.566519, -3.551574, -3.673513, -3.930988, 
+    -4.204684, -4.299379, -4.263822, -4.204089, -4.183186, -4.025184, 
+    -4.08243, -4.366291, -3.757159, -3.465366, -3.486617, -3.369431, 
+    -3.535187, -3.711404, -3.683151, -3.407696, -3.581657, -4.172884, 
+    -4.277011, -4.171598, -3.951182, -4.154864, -4.234497, -4.206896, 
+    -4.305233, -4.995163, -5.22155, -5.375441, -5.631544, -5.575253, 
+    -5.143795, -5.152404, -5.081264, -5.305688, -5.933304, -6.575244, 
+    -6.888974, -6.95105, -7.083681, -7.863652, -7.458602, -6.268217, 
+    -6.115988, -6.009974, -5.810044, -5.570511, -5.468049, -5.560484, 
+    -5.635024, -5.989495, -7.025322, -7.019114, -6.700281, -6.72428, 
+    -6.712096, -6.468142, -5.416078, -4.90764, -4.677939, -5.78013, 
+    -9.352082, -10.57142, -10.63585, -10.18696, -9.656144, -9.471659, 
+    -9.407211, -9.256883, -9.120063, -8.922285, -8.644751, -8.341505, 
+    -8.108331, -7.947536, -7.830674, -7.697243, -7.534506, -7.468126, 
+    -7.532438, -7.64433, -7.685043, -7.469258, -7.105866, -6.78486, -6.285911,
+  -3.004915, -3.265207, -3.430456, -3.656171, -2.971566, -2.973518, 
+    -3.185821, -3.201021, -3.449207, -3.535293, -3.732777, -3.886559, 
+    -4.018094, -4.102085, -4.22719, -4.225224, -4.258193, -4.516277, 
+    -4.952664, -4.74788, -4.327854, -3.701458, -3.447802, -3.414886, 
+    -3.434326, -3.350633, -3.241108, -3.050463, -3.286349, -3.882437, 
+    -4.006362, -4.070749, -3.871537, -4.205525, -4.702688, -4.616791, 
+    -4.445994, -4.414037, -4.463938, -4.238214, -4.038897, -4.599739, 
+    -4.369095, -4.378055, -4.272242, -4.535683, -5.377172, -6.316761, 
+    -6.731801, -6.852893, -6.741495, -6.838296, -7.764154, -7.679968, 
+    -7.324559, -6.710234, -5.740823, -5.556, -5.570969, -5.539508, -5.506938, 
+    -5.459126, -5.677704, -6.591558, -6.678325, -6.69277, -6.647236, 
+    -6.54025, -6.192278, -5.16851, -4.66539, -4.174517, -5.006698, -8.419363, 
+    -9.56042, -9.633327, -9.25696, -8.798644, -8.787443, -8.794075, 
+    -8.765486, -8.737048, -8.553583, -8.262597, -7.984024, -7.738439, 
+    -7.517144, -7.317072, -7.087288, -6.936111, -7.00943, -7.201913, 
+    -7.235836, -6.969395, -6.632176, -6.381844, -5.951183,
+  -3.028861, -3.255592, -3.428568, -3.669904, -3.672907, -4.388093, 
+    -4.514555, -3.462389, -3.463666, -3.599659, -3.765953, -3.901365, 
+    -3.966633, -3.995297, -3.945745, -4.005994, -4.137754, -4.554346, 
+    -5.05623, -4.917062, -4.705052, -4.2264, -3.850946, -3.450935, -3.347281, 
+    -3.201007, -3.046048, -3.014025, -2.822609, -2.975558, -3.115706, 
+    -3.493478, -3.325586, -3.606412, -4.13663, -4.041883, -3.863979, 
+    -3.83381, -3.830735, -3.50061, -3.633545, -3.900986, -3.526598, 
+    -3.487392, -3.348223, -3.745858, -4.635245, -5.542643, -6.178547, 
+    -6.618365, -6.648805, -6.298337, -6.470786, -7.462144, -7.458627, 
+    -6.559373, -5.430977, -5.351358, -5.472447, -5.547957, -5.789254, 
+    -6.116547, -5.136124, -5.290727, -6.355686, -6.564081, -6.500882, 
+    -6.149217, -5.293163, -5.38188, -5.542547, -4.461225, -3.987821, 
+    -4.325843, -5.084812, -6.075724, -8.463823, -8.382487, -8.034457, 
+    -8.164272, -8.249757, -8.318543, -8.322658, -8.112709, -7.850859, 
+    -7.595608, -7.313409, -7.03625, -6.741852, -6.493308, -6.473508, 
+    -6.695138, -6.776278, -6.492186, -6.175413, -5.991259, -5.621701,
+  -2.90305, -3.153407, -3.487552, -4.008529, -3.635256, -3.511593, -4.777634, 
+    -4.26403, -3.80917, -4.953596, -3.998606, -3.759644, -3.863119, -3.77954, 
+    -4.007959, -4.128046, -4.21916, -4.37517, -5.010905, -5.016275, 
+    -4.841058, -4.533675, -4.135279, -3.702364, -3.46507, -3.103194, 
+    -3.02077, -3.042936, -3.013294, -3.080735, -3.247434, -3.081171, 
+    -2.931798, -3.202792, -3.783006, -3.716299, -3.610515, -3.569937, 
+    -3.544165, -3.517056, -3.280314, -3.316512, -3.174883, -2.954392, 
+    -2.619826, -2.85419, -3.748741, -4.36009, -4.876779, -5.796301, -6.40193, 
+    -6.265558, -6.105034, -6.182075, -6.434795, -6.448372, -5.235902, 
+    -5.014344, -5.231222, -5.447848, -5.643498, -5.984041, -5.076432, 
+    -4.768685, -5.254098, -6.160336, -6.190017, -6.115527, -5.990085, 
+    -5.924798, -5.703909, -5.352787, -4.868927, -4.328343, -4.65859, 
+    -5.05691, -5.874424, -7.977677, -7.632883, -7.388811, -7.626372, 
+    -7.673414, -7.841076, -7.837697, -7.629676, -7.420758, -7.141298, 
+    -6.848926, -6.53699, -6.246623, -6.096976, -6.183948, -6.258553, 
+    -6.034254, -5.765079, -5.624964, -5.302487,
+  -2.84945, -3.12827, -3.545813, -4.099788, -3.550164, -3.377591, -3.852046, 
+    -3.62262, -5.14102, -5.511495, -5.64528, -5.186504, -3.767709, -3.673723, 
+    -4.025239, -4.120035, -4.270939, -4.349841, -4.526021, -5.00889, 
+    -4.94645, -4.773737, -4.400224, -3.982647, -3.792527, -3.306338, 
+    -2.824327, -2.804686, -2.751782, -2.854326, -2.685772, -2.808022, 
+    -2.616847, -2.516949, -2.877059, -3.242551, -3.168357, -3.111782, 
+    -2.907424, -3.10565, -3.434173, -3.318407, -3.295354, -2.971623, 
+    -2.59655, -2.331398, -2.383845, -3.278857, -4.133725, -4.802814, 
+    -5.425656, -6.18746, -6.384077, -6.078447, -5.662488, -5.549286, 
+    -6.131334, -5.794967, -5.007016, -5.162794, -5.439179, -6.068081, 
+    -6.271617, -4.920039, -4.753212, -4.900188, -4.988762, -5.627277, 
+    -5.54715, -5.491116, -5.460887, -5.238072, -4.806693, -4.11368, 
+    -4.031247, -4.939019, -7.332784, -7.831767, -7.44944, -6.788114, 
+    -6.854382, -6.930165, -7.050539, -7.334203, -7.283846, -7.169131, 
+    -6.941347, -6.68187, -6.396243, -6.115259, -5.881138, -5.788459, 
+    -5.781682, -5.619008, -5.403602, -5.271348, -4.982553,
+  -2.733036, -3.067409, -3.474985, -3.996696, -3.604256, -3.9125, -4.289224, 
+    -4.190038, -4.595029, -4.641374, -5.142132, -4.852026, -5.342899, 
+    -5.53679, -4.963516, -4.146679, -4.313703, -4.479434, -4.549648, 
+    -4.700108, -4.241523, -4.861528, -4.662391, -4.317288, -4.203063, 
+    -4.007239, -3.394436, -2.836428, -2.650764, -2.467773, -2.507833, 
+    -2.63472, -2.104865, -2.147088, -2.446119, -2.632421, -2.56249, 
+    -2.307098, -2.246371, -2.338054, -2.531805, -3.024279, -3.215752, 
+    -3.031013, -2.601773, -2.000876, -1.406741, -1.794431, -2.981753, 
+    -3.879238, -4.847538, -5.97963, -6.149879, -5.746392, -5.46267, 
+    -4.969498, -5.091491, -6.018556, -5.591151, -4.684886, -5.005269, 
+    -5.572643, -5.446186, -4.888772, -4.630636, -4.776576, -5.483681, 
+    -5.64318, -5.450167, -5.180453, -5.256884, -5.185483, -5.093096, 
+    -4.68556, -3.93963, -3.790602, -3.809922, -4.696058, -6.673141, 
+    -6.350339, -6.10517, -6.228738, -6.217743, -6.559274, -6.72673, -6.74316, 
+    -6.618772, -6.429739, -6.218406, -5.984346, -5.711765, -5.487408, 
+    -5.405097, -5.263103, -5.060905, -4.901808, -4.641614,
+  -2.543193, -2.907965, -3.294073, -3.785135, -3.416942, -3.467593, 
+    -3.427936, -2.833695, -3.048468, -3.098647, -3.312063, -3.393451, 
+    -3.548309, -3.68087, -3.809745, -3.994509, -4.091229, -4.202382, 
+    -4.270556, -4.133941, -4.094976, -4.763577, -4.760779, -4.396463, 
+    -4.096451, -3.944231, -3.78041, -3.197615, -2.814016, -2.675034, 
+    -2.470509, -2.267631, -1.942434, -1.778127, -1.750682, -1.839235, 
+    -1.832676, -1.664394, -1.935506, -2.193914, -2.711712, -2.887503, 
+    -2.95032, -3.339199, -3.338861, -3.123488, -2.345656, -1.746837, 
+    -2.370886, -3.575011, -4.873734, -5.846801, -5.598755, -5.519044, 
+    -5.715059, -5.231428, -4.669667, -4.596932, -4.642078, -4.673835, 
+    -5.236517, -5.244902, -4.804061, -4.897419, -5.01388, -4.157972, 
+    -4.165678, -5.102202, -5.198997, -4.718753, -4.688284, -4.682694, 
+    -4.600715, -4.458147, -4.096083, -4.555698, -3.912038, -3.48661, 
+    -4.102249, -5.562888, -5.513456, -5.51853, -5.477994, -5.699909, 
+    -5.983172, -6.127922, -6.13628, -6.044234, -5.916969, -5.764373, 
+    -5.534604, -5.25765, -5.079368, -4.92771, -4.747624, -4.572516, -4.334885,
+  -2.340746, -2.725046, -3.117522, -3.53759, -3.130996, -2.987463, -3.161827, 
+    -3.054816, -3.27949, -3.168995, -3.091167, -3.366037, -3.570376, 
+    -3.781544, -3.83489, -3.85319, -3.913759, -4.03438, -4.102591, -4.35267, 
+    -4.744643, -4.805856, -4.888866, -4.641559, -4.330893, -3.949269, 
+    -3.767896, -3.406084, -3.010901, -2.740884, -2.463342, -1.984908, 
+    -1.691743, -1.674255, -1.404601, -1.469672, -1.295595, -1.21313, 
+    -1.559746, -1.653465, -2.092223, -2.783347, -3.162222, -3.692747, 
+    -4.018527, -3.652241, -3.5115, -3.730511, -3.675755, -4.198898, 
+    -4.583129, -4.84153, -4.735642, -5.014286, -5.473793, -5.230547, 
+    -4.679139, -4.224252, -4.267193, -4.804322, -4.762788, -4.850807, 
+    -5.053222, -5.161963, -4.986026, -4.416275, -3.56938, -3.59499, 
+    -3.919951, -4.116858, -4.004818, -3.970175, -3.89397, -3.90847, 
+    -3.717343, -3.592001, -4.149031, -3.4655, -3.497694, -4.743057, 
+    -4.835874, -4.778269, -4.761887, -4.876038, -5.126163, -5.35048, 
+    -5.474643, -5.508448, -5.482425, -5.416363, -5.27343, -5.033685, 
+    -4.800702, -4.628827, -4.474918, -4.297968, -4.073933,
+  -2.140557, -2.506494, -2.90938, -3.183059, -3.02942, -2.908831, -2.895448, 
+    -2.763927, -2.637035, -3.149404, -3.517708, -3.858749, -4.097677, 
+    -3.831143, -3.740293, -3.710656, -3.696554, -3.710563, -3.763327, 
+    -3.837671, -4.059559, -4.612251, -4.666029, -4.571902, -4.349488, 
+    -4.059688, -3.842792, -3.669513, -3.42007, -3.159016, -2.911029, 
+    -2.681202, -2.423055, -2.053378, -2.020232, -2.215397, -2.059131, 
+    -1.752005, -1.806098, -1.926783, -2.09357, -1.979212, -2.329944, 
+    -2.709882, -3.368275, -3.615244, -3.631565, -3.628936, -3.475727, 
+    -3.400959, -3.272092, -3.026651, -3.047473, -3.304553, -3.601303, 
+    -3.680374, -3.605399, -3.463929, -3.449995, -3.459776, -3.658612, 
+    -3.484076, -3.81058, -3.651749, -3.85375, -3.725847, -3.20431, -2.924526, 
+    -2.934097, -3.261531, -3.251172, -3.114706, -3.025033, -2.92859, 
+    -2.700771, -2.757349, -3.096866, -4.151487, -4.181483, -4.052155, 
+    -4.008167, -3.975261, -4.008627, -4.140669, -4.352343, -4.5695, 
+    -4.753075, -4.891209, -4.973175, -4.994807, -4.948317, -4.814475, 
+    -4.603084, -4.419075, -4.281512, -4.120364, -3.892106,
+  -1.881655, -2.290382, -2.638026, -2.799895, -2.815911, -2.806139, 
+    -2.788978, -2.835352, -3.002656, -3.185906, -3.310669, -3.180237, 
+    -3.367681, -3.593369, -4.014282, -3.840923, -3.369513, -3.327997, 
+    -3.474523, -3.954721, -3.756466, -3.845734, -4.201759, -4.252599, 
+    -4.183422, -4.031991, -3.897372, -3.798452, -3.664497, -3.497703, 
+    -3.29857, -3.08686, -2.829532, -2.437617, -2.281428, -2.33706, -2.082491, 
+    -1.939165, -1.992105, -2.236096, -2.310772, -2.205583, -2.435287, 
+    -3.089927, -3.305598, -3.655516, -3.940788, -3.891654, -3.770339, 
+    -3.259382, -2.860099, -3.280224, -3.163718, -3.147736, -2.858747, 
+    -2.927598, -3.341342, -3.581139, -3.470356, -3.231643, -3.452347, 
+    -3.255327, -3.254416, -3.250383, -3.325876, -3.180741, -3.157146, 
+    -3.101678, -2.930309, -2.597851, -2.564669, -2.765092, -2.707963, 
+    -2.655873, -2.713323, -2.811604, -2.903952, -2.883231, -2.718402, 
+    -3.448182, -3.5913, -3.635049, -3.72509, -3.867914, -4.0666, -4.273399, 
+    -4.462634, -4.626697, -4.742267, -4.790073, -4.764407, -4.669354, 
+    -4.520767, -4.3444, -4.167541, -4.002858, -3.763649,
+  -1.595798, -1.920183, -2.202315, -2.353769, -2.425914, -2.461894, 
+    -2.484632, -2.579513, -2.797244, -3.062702, -3.013208, -3.137596, 
+    -3.264271, -3.53429, -3.140782, -3.05987, -3.081784, -3.121043, 
+    -3.517575, -3.662208, -3.683153, -3.850208, -3.941362, -3.834509, 
+    -3.867388, -3.877844, -3.849882, -3.846175, -3.820252, -3.787497, 
+    -3.698629, -3.562727, -3.324902, -2.807602, -2.666739, -2.708801, 
+    -2.538728, -2.487736, -2.485048, -2.563811, -2.708186, -2.766697, 
+    -2.678557, -2.863844, -3.110797, -3.471316, -3.790534, -3.897171, 
+    -3.735396, -3.459947, -3.178683, -2.972415, -2.838528, -2.913464, 
+    -2.856756, -2.617573, -3.008075, -3.587921, -3.784124, -3.706726, 
+    -3.369856, -3.180242, -3.133181, -2.952808, -2.632354, -2.401257, 
+    -2.425522, -2.436367, -2.37233, -2.324892, -2.313203, -2.342411, 
+    -2.509738, -2.457617, -2.296227, -2.487688, -2.333667, -2.592722, 
+    -3.045606, -3.175729, -3.326928, -3.490004, -3.639322, -3.79542, 
+    -3.971736, -4.154621, -4.341026, -4.520807, -4.656841, -4.717573, 
+    -4.697212, -4.60971, -4.475313, -4.308484, -4.108077, -3.896728, -3.645536,
+  -1.279822, -1.422817, -1.603238, -1.755086, -1.84049, -1.858988, -1.889341, 
+    -2.006827, -2.32626, -2.877789, -3.529783, -3.740238, -3.213792, 
+    -2.953161, -2.751125, -2.634694, -2.799779, -2.594359, -2.878633, 
+    -3.043884, -3.093302, -2.857601, -3.027395, -3.339514, -3.284037, 
+    -3.407004, -3.544938, -3.611072, -3.65017, -3.744104, -3.833082, 
+    -3.787316, -3.55977, -3.078675, -2.929391, -2.87347, -2.595176, 
+    -2.569825, -2.636289, -2.74066, -2.868045, -2.946527, -2.954126, 
+    -2.825577, -2.968587, -3.341869, -3.772191, -3.674651, -3.490434, 
+    -3.54357, -3.452951, -3.179329, -2.797616, -2.585692, -2.655217, 
+    -2.614327, -3.000252, -3.602226, -3.735752, -3.809875, -3.749425, 
+    -3.602647, -3.089887, -2.605807, -2.564258, -2.265804, -1.955987, 
+    -1.943123, -2.090113, -2.110216, -1.990138, -1.984975, -1.981998, 
+    -2.177845, -2.26315, -2.282385, -2.097261, -2.244467, -2.594024, 
+    -2.821274, -3.108908, -3.380945, -3.5969, -3.772655, -3.933249, 
+    -4.101049, -4.297977, -4.509844, -4.681452, -4.76291, -4.747563, 
+    -4.660064, -4.522159, -4.33941, -4.106347, -3.836349, -3.556631 ;
+}
