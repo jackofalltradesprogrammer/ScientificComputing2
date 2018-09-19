@@ -2,7 +2,7 @@
 PROGRAM fdmplay
 IMPLICIT NONE
 
-    INTEGER, PARAMETER :: N = 1000
+    INTEGER, PARAMETER :: N = 1.0E4
     DOUBLE PRECISION, PARAMETER :: L = 1.0,    &
 &                                  C = 2.0,    &
 &                                  RHO = 5.0,  &
@@ -13,22 +13,22 @@ IMPLICIT NONE
 &                                  INITIAL_VALUE = 100.0
 
 
-    PRINT *, '-------------------------'
+    PRINT *, '-----------N=',N,'-------------'
     PRINT *, 'Full matrix, naive GE'
-    CALL fullmat_fdm1d(N, L, INITIAL_VALUE, LEFT_BC, RIGHT_BC, &
-&                      C, RHO, DELTA_T, TN)
+!    CALL fullmat_fdm1d(N, L, INITIAL_VALUE, LEFT_BC, RIGHT_BC, &
+!&                      C, RHO, DELTA_T, TN)
 
-    PRINT *, '-------------------------'
+    PRINT *, '-----------N=',N,'-------------'
     PRINT *, 'Full matrix, DGESV'
    CALL dgesv_fdm1d(N, L, INITIAL_VALUE, LEFT_BC, RIGHT_BC, &
 &                    C, RHO, DELTA_T, TN)
 
-   PRINT *, '-------------------------'
+   PRINT *, '------------N=',N,'-------------'
    PRINT *, 'Tridiagonal, custom thomas'
    CALL thomas_fdm1d(N, L, INITIAL_VALUE, LEFT_BC, RIGHT_BC, &
 &                      C, RHO, DELTA_T, TN)
 
-    PRINT *, '-------------------------'
+    PRINT *, '-----------N=',N,'--------------'
     PRINT *, 'Tridiagonal, DGTSV'
     CALL dgtsv_fdm1d(N, L, INITIAL_VALUE, LEFT_BC, RIGHT_BC, &
 &                      C, RHO, DELTA_T, TN)
@@ -186,7 +186,7 @@ IMPLICIT NONE
         ! (all but boundary nodes)
         DO i = 2, N-1
             ! Compute the nonlinear r(u) for the node
-            r = ( k(u_old(i))*delta_t ) / (c*rho*rho)
+            r = ( k(u_old(i))*delta_t ) / (c*rho*h*h)
             A(i, i-1) = r
             A(i, i) = -(2.0*r + 1)
             A(i, i+1) = r
@@ -262,7 +262,7 @@ IMPLICIT NONE
         DO i = 2, N-1
             ! Compute the nonlinear r(u) for the node
             ! ******IN THE LECTURET --- (c*rho*h*h)
-            r = ( k(u_old(i))*delta_t ) / (c*rho*rho)
+            r = ( k(u_old(i))*delta_t ) / (c*rho*h*h)
             
             !Insert the coefficients for equation i
             e(i-1)=r
@@ -346,7 +346,7 @@ IMPLICIT NONE
     ! (all but boundary nodes)
     DO i = 2, N-1
         ! Compute the nonlinear r(u) for the node
-        r = ( k(u_old(i))*delta_t ) / (c*rho*rho)
+        r = ( k(u_old(i))*delta_t ) / (c*rho*h*h)
         A(i, i-1) = r
         A(i, i) = -(2.0*r + 1)
         A(i, i+1) = r
@@ -435,7 +435,7 @@ IMPLICIT NONE
         DO i = 2, N-1
             ! Compute the nonlinear r(u) for the node
             ! ******IN THE LECTURE --- (c*rho*h*h)
-            r = ( k(u_old(i))*delta_t ) / (c*rho*rho)
+            r = ( k(u_old(i))*delta_t ) / (c*rho*h*h)
             
             !Insert the coefficients for equation i
             dl(i-1)=r
