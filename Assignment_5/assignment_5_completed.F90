@@ -2,7 +2,7 @@
 PROGRAM fdmplay
 IMPLICIT NONE
 
-    INTEGER, PARAMETER :: N = 1.0E4
+    INTEGER, PARAMETER :: N = 1.9E7
     DOUBLE PRECISION, PARAMETER :: L = 1.0,    &
 &                                  C = 2.0,    &
 &                                  RHO = 5.0,  &
@@ -20,8 +20,8 @@ IMPLICIT NONE
 
     PRINT *, '-----------N=',N,'-------------'
     PRINT *, 'Full matrix, DGESV'
-   CALL dgesv_fdm1d(N, L, INITIAL_VALUE, LEFT_BC, RIGHT_BC, &
-&                    C, RHO, DELTA_T, TN)
+!    CALL dgesv_fdm1d(N, L, INITIAL_VALUE, LEFT_BC, RIGHT_BC, &
+!&                    C, RHO, DELTA_T, TN)
 
    PRINT *, '------------N=',N,'-------------'
    PRINT *, 'Tridiagonal, custom thomas'
