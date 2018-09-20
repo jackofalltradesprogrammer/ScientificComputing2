@@ -2,18 +2,18 @@ PROGRAM assign06
 IMPLICIT NONE
 
     ! Three arrays of size N used in the main program
-    DOUBLE PRECISION, DIMENSION(:), ALLOCATABLE :: x, y, z
+    DOUBLE PRECISION, DIMENSION(:), ALLOCATABLE :: x, y, z, x_square
 
     ! Will store the input file name/path that comes from command line
     CHARACTER(LEN=256) :: inputfile
 
     ! Miscellaneous variables used in the main program
-    DOUBLE PRECISION :: ssum
+    DOUBLE PRECISION :: ssum, esum
     INTEGER :: N, i
 
     ! Need to make sure we declare any functions we use
     ! within this program unit
-    DOUBLE PRECISION scalar_sum
+    DOUBLE PRECISION scalar_sum, sum_of_elements
 
     ! Get the first command line argument and store it in variable inputfile
     CALL GETARG(1, inputfile)
@@ -32,7 +32,7 @@ IMPLICIT NONE
 
     ! Now that we know the size of N, allocate any arrays we need
     ALLOCATE( x(N), y(N) )
-    ALLOCATE( z(N) )
+    ALLOCATE( z(N), x_square(N) )
     
     ! Read 'em in, one line at a time!
     DO i=1,N
@@ -64,6 +64,18 @@ IMPLICIT NONE
      CALL pairwise_vector_differ(N, x, y, z)
 #ifdef DEBUG
      PRINT *, 'pairwise_vector_differ: ', z
+#endif
+
+     ! Calculate vector_square()
+     CALL vector_square(N,x,x_square)
+#ifdef DEBUG
+     PRINT *, 'Square: ', x_square
+#endif
+
+     ! Calculate sum_of elements() function
+     esum = sum_of_elements(N, x)
+#ifdef DEBUG
+     PRINT *, 'Sum of x elements: ', esum
 #endif
 
 END PROGRAM assign06
@@ -177,16 +189,43 @@ END SUBROUTINE pairwise_vector_differ
 !-----------------------------------------------------
 
 SUBROUTINE vector_square(N, x, x_square)
-!IMPLICIT NONE
-        ! Write my code here
+IMPLICIT NONE
+     ! Perform the square of elements in x 
+     ! placing the resuts in x_square
+
+     ! Declaration of subroutine arguments
+     INTEGER :: N
+     DOUBLE PRECISION, DIMENSION(N) :: x, x_square
+
+     ! Declaration of local variable
+     INTEGER :: i
+
+#ifdef DEBUG
+     PRINT *, 'vector_square() - x: ', x
+#endif
+
+     DO i=1, N
+        x_square(i)  = x(i)*x(i)
+     ENDDO
+     
 
 END SUBROUTINE vector_square
 
 !-----------------------------------------------------
 
 DOUBLE PRECISION FUNCTION sum_of_elements(N, x)
-!IMPLICIT NONE
-        ! Write code here
+IMPLICIT NONE
+     ! Perform the sum of of elements in x
+     ! Return the sum
+
+     INTEGER :: N, i
+     DOUBLE PRECISION, DIMENSION(N) :: x
+
+     DO i=1, N
+        sum_of_elements = sum_of_elements + x(i)
+     ENDDO
+
+     RETURN
 END FUNCTION sum_of_elements
 
 DOUBLE PRECISION FUNCTION rmse(N, x, y)
