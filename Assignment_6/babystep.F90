@@ -8,12 +8,12 @@ IMPLICIT NONE
     CHARACTER(LEN=256) :: inputfile
 
     ! Miscellaneous variables used in the main program
-    DOUBLE PRECISION :: ssum, esum
+    DOUBLE PRECISION :: ssum, esum, rmse_result
     INTEGER :: N, i
 
     ! Need to make sure we declare any functions we use
     ! within this program unit
-    DOUBLE PRECISION scalar_sum, sum_of_elements
+    DOUBLE PRECISION scalar_sum, sum_of_elements, rmse
 
     ! Get the first command line argument and store it in variable inputfile
     CALL GETARG(1, inputfile)
@@ -76,6 +76,12 @@ IMPLICIT NONE
      esum = sum_of_elements(N, x)
 #ifdef DEBUG
      PRINT *, 'Sum of x elements: ', esum
+#endif
+
+     ! Test of rmse()
+     rmse_result = rmse(N, x, y)
+#ifdef DEBUG
+     PRINT *, 'rmse_result: ', rmse_result
 #endif
 
 END PROGRAM assign06
@@ -229,6 +235,14 @@ IMPLICIT NONE
 END FUNCTION sum_of_elements
 
 DOUBLE PRECISION FUNCTION rmse(N, x, y)
-!IMPLICIT NONE
-        ! Write code here
+IMPLICIT NONE
+     ! Returns the Root Mean Square Eror of
+     ! Forecast(x) and Observations(y)
+
+     INTEGER :: N, i
+     DOUBLE PRECISION, DIMENSION(N) :: x,y
+
+     rmse = x(2) 
+
+     RETURN
 END FUNCTION rmse
