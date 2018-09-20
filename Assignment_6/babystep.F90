@@ -60,6 +60,12 @@ IMPLICIT NONE
     PRINT *, 'ssum: ', ssum
 #endif
 
+     ! Calculate pairwise difference of x and y
+     CALL pairwise_vector_differ(N, x, y, z)
+#ifdef DEBUG
+     PRINT *, 'pairwise_vector_differ: ', z
+#endif
+
 END PROGRAM assign06
 
 !---------------------------------------------------
@@ -87,6 +93,24 @@ IMPLICIT NONE
     RETURN
 
 END FUNCTION scalar_sum
+!---------------------------------------------------
+
+DOUBLE PRECISION FUNCTION scalar_differ(e,f)
+IMPLICIT NONE 
+
+        ! Returns the difference of vector variable e and f
+
+        ! Declarations of subroutine arguments
+        DOUBLE PRECISION :: e, f
+#ifdef DEBUG
+        PRINT *, 'scalar_differ() - e: ', e
+        PRINT *, 'scalar_differ() - f: ', f
+#endif
+
+        scalar_differ = e - f
+        RETURN
+
+END FUNCTION scalar_differ
 
 !---------------------------------------------------
 
@@ -120,19 +144,40 @@ IMPLICIT NONE
 
 END SUBROUTINE pairwise_vector_sum
 
-!-----------------------------------------------------
+!---------------_------------------------------------
 
-SUBROUTINE pairwise_vector_sum(N, a, b, c)
+SUBROUTINE pairwise_vector_differ(N, a, b, c)
 IMPLICIT NONE
 
-        ! Write my code here
+    ! Performs the pairwise substraction of elements in a and b
+    ! placing the results in  c.
+        
+    ! Declaration of Subroutie arguments
+    INTEGER :: N
+    DOUBLE PRECISION, DIMENSION(N) :: a, b, c
 
-END SUBROUTINE pairwise_vector_sum
+    ! Declaration of local variable
+    INTEGER :: i
+
+    ! Declare any functions that we are going to use
+    DOUBLE PRECISION scalar_differ
+
+#ifdef DEBUG
+    PRINT *, 'pairwise_vector_diff() - a: ', a
+    PRINT *, 'pairwise_vector_sum() - b: ', b
+#endif
+
+    DO i=1,N
+        !There are a couple of ways to do this
+        c(i) = scalar_differ( a(i), b(i))
+    ENDDO
+
+END SUBROUTINE pairwise_vector_differ
 
 !-----------------------------------------------------
 
 SUBROUTINE vector_square(N, x, x_square)
-IMPLICIT NONE
+!IMPLICIT NONE
         ! Write my code here
 
 END SUBROUTINE vector_square
@@ -140,11 +185,11 @@ END SUBROUTINE vector_square
 !-----------------------------------------------------
 
 DOUBLE PRECISION FUNCTION sum_of_elements(N, x)
-IMPLICIT NONE
+!IMPLICIT NONE
         ! Write code here
-END FUNCTION sum_of_element
+END FUNCTION sum_of_elements
 
 DOUBLE PRECISION FUNCTION rmse(N, x, y)
-IMPLICIT NONE
+!IMPLICIT NONE
         ! Write code here
 END FUNCTION rmse
