@@ -120,3 +120,31 @@ IMPLICIT NONE
 
 END SUBROUTINE pairwise_vector_sum
 
+!-----------------------------------------------------
+
+SUBROUTINE pairwise_vector_sum(N, a, b, c)
+IMPLICIT NONE
+
+        ! Write my code here
+
+END SUBROUTINE pairwise_vector_sum
+
+!-----------------------------------------------------
+
+SUBROUTINE vector_square(N, x, x_square)
+IMPLICIT NONE
+        ! Write my code here
+
+END SUBROUTINE vector_square
+
+!-----------------------------------------------------
+
+DOUBLE PRECISION FUNCTION sum_of_elements(N, x)
+IMPLICIT NONE
+        ! Write code here
+END FUNCTION sum_of_element
+
+DOUBLE PRECISION FUNCTION rmse(N, x, y)
+IMPLICIT NONE
+        ! Write code here
+END FUNCTION rmse
