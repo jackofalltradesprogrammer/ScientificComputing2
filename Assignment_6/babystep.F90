@@ -49,16 +49,16 @@ IMPLICIT NONE
 
 
     ! Calculate pairwise sums of x and y
-    CALL pairwise_vector_sum(N, x, y, z)
-#ifdef DEBUG
-    PRINT *, 'pairwise_vector_sum: ', z
-#endif
+    !CALL pairwise_vector_sum(N, x, y, z)
+!#ifdef DEBUG
+    !PRINT *, 'pairwise_vector_sum: ', z
+!#endif
     
     ! Test of scalar_sum() function
-    ssum = scalar_sum(x(1), y(1))
-#ifdef DEBUG
-    PRINT *, 'ssum: ', ssum
-#endif
+    !ssum = scalar_sum(x(1), y(1))
+!#ifdef DEBUG
+!    PRINT *, 'ssum: ', ssum
+!#endif
 
      ! Calculate pairwise difference of x and y
      CALL pairwise_vector_diff(N, x, y, z)
@@ -253,7 +253,7 @@ IMPLICIT NONE
      CALL vector_square(N, xydiff, xysquare)
 
      ! get the sum of element
-     rmse = SQRT(sum_of_elements(N, xysquare))
+     rmse = SQRT(sum_of_elements(N, xysquare)/N)
 
      RETURN
 END FUNCTION rmse
