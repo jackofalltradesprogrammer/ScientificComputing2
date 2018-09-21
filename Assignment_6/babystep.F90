@@ -61,9 +61,9 @@ IMPLICIT NONE
 #endif
 
      ! Calculate pairwise difference of x and y
-     CALL pairwise_vector_differ(N, x, y, z)
+     CALL pairwise_vector_diff(N, x, y, z)
 #ifdef DEBUG
-     PRINT *, 'pairwise_vector_differ: ', z
+     PRINT *, 'pairwise_vector_diff: ', z
 #endif
 
      ! Calculate vector_square()
@@ -78,7 +78,9 @@ IMPLICIT NONE
      PRINT *, 'Sum of x elements: ', esum
 #endif
 
-     ! Test of rmse()
+     ! Run  rmse()
+     PRINT *, '_______________________                     rmse()                   ______________________'
+     PRINT *, '************************                     rmse()                  **********************'
      rmse_result = rmse(N, x, y)
 #ifdef DEBUG
      PRINT *, 'rmse_result: ', rmse_result
@@ -164,7 +166,7 @@ END SUBROUTINE pairwise_vector_sum
 
 !---------------_------------------------------------
 
-SUBROUTINE pairwise_vector_differ(N, a, b, c)
+SUBROUTINE pairwise_vector_diff(N, a, b, c)
 IMPLICIT NONE
 
     ! Performs the pairwise substraction of elements in a and b
@@ -182,7 +184,7 @@ IMPLICIT NONE
 
 #ifdef DEBUG
     PRINT *, 'pairwise_vector_diff() - a: ', a
-    PRINT *, 'pairwise_vector_sum() - b: ', b
+    PRINT *, 'pairwise_vector_diff() - b: ', b
 #endif
 
     DO i=1,N
@@ -190,7 +192,7 @@ IMPLICIT NONE
         c(i) = scalar_differ( a(i), b(i))
     ENDDO
 
-END SUBROUTINE pairwise_vector_differ
+END SUBROUTINE pairwise_vector_diff
 
 !-----------------------------------------------------
 
@@ -239,10 +241,19 @@ IMPLICIT NONE
      ! Returns the Root Mean Square Eror of
      ! Forecast(x) and Observations(y)
 
-     INTEGER :: N, i
-     DOUBLE PRECISION, DIMENSION(N) :: x,y
+     INTEGER :: N
+     DOUBLE PRECISION, DIMENSION(N) :: x,y, xydiff, xysquare
+     
+     DOUBLE PRECISION sum_of_elements
+     
+     ! Call the SUBROUTINE pairwise_vector_diff
+     CALL pairwise_vector_diff(N, x, y, xydiff)
 
-     rmse = x(2) 
+     ! Call the SUBROUTINE vector_square
+     CALL vector_square(N, xydiff, xysquare)
+
+     ! get the sum of element
+     rmse = SQRT(sum_of_elements(N, xysquare))
 
      RETURN
 END FUNCTION rmse
