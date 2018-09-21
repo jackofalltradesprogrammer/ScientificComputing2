@@ -64,25 +64,29 @@ IMPLICIT NONE
      CALL pairwise_vector_diff(N, x, y, z)
 #ifdef DEBUG
      PRINT *, 'pairwise_vector_diff: ', z
+     PRINT *, '-------------------------------------------------------------------------------------------'
 #endif
 
      ! Calculate vector_square()
      CALL vector_square(N,x,x_square)
 #ifdef DEBUG
      PRINT *, 'Square: ', x_square
+     PRINT *, '-------------------------------------------------------------------------------------------'
 #endif
 
      ! Calculate sum_of elements() function
      esum = sum_of_elements(N, x)
 #ifdef DEBUG
      PRINT *, 'Sum of x elements: ', esum
+     PRINT *, '-------------------------------------------------------------------------------------------'
 #endif
 
      ! Run  rmse()
-     PRINT *, '_______________________                     rmse()                   ______________________'
-     PRINT *, '************************                     rmse()                  **********************'
+#ifdef DEBUG    
+     PRINT *, '                                              -                                            '
+     PRINT *, '                                            rmse()                   '
+     PRINT *, '                                              -                                            '
      rmse_result = rmse(N, x, y)
-#ifdef DEBUG
      PRINT *, 'rmse_result: ', rmse_result
 #endif
 
