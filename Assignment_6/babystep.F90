@@ -8,12 +8,12 @@ IMPLICIT NONE
     CHARACTER(LEN=256) :: inputfile
 
     ! Miscellaneous variables used in the main program
-    DOUBLE PRECISION :: ssum, esum, rmse_result
+    DOUBLE PRECISION :: esum, rmse_result
     INTEGER :: N, i
 
     ! Need to make sure we declare any functions we use
     ! within this program unit
-    DOUBLE PRECISION scalar_sum, sum_of_elements, rmse
+    DOUBLE PRECISION sum_of_elements, rmse
 
     ! Get the first command line argument and store it in variable inputfile
     CALL GETARG(1, inputfile)
@@ -42,43 +42,30 @@ IMPLICIT NONE
     CLOSE(10)
 
 #ifdef DEBUG
-    PRINT *, 'Main program - x: ', x
-    PRINT *, 'Main program - y: ', y
-    PRINT *, '-----------------------'
+    PRINT *, 'Main program - x:           ', x
+    PRINT *, 'Main program - y:           ', y
+    PRINT *, '-------------------------------------------------------------------------------------------------------------------'
 #endif
-
-
-    ! Calculate pairwise sums of x and y
-    !CALL pairwise_vector_sum(N, x, y, z)
-!#ifdef DEBUG
-    !PRINT *, 'pairwise_vector_sum: ', z
-!#endif
-    
-    ! Test of scalar_sum() function
-    !ssum = scalar_sum(x(1), y(1))
-!#ifdef DEBUG
-!    PRINT *, 'ssum: ', ssum
-!#endif
 
      ! Calculate pairwise difference of x and y
      CALL pairwise_vector_diff(N, x, y, z)
 #ifdef DEBUG
-     PRINT *, 'pairwise_vector_diff: ', z
-     PRINT *, '-------------------------------------------------------------------------------------------'
+     PRINT *, 'pairwise_vector_diff:       ', z
+     PRINT *, '------------------------------------------------------------------------------------------------------------------'
 #endif
 
      ! Calculate vector_square()
-     CALL vector_square(N,x,x_square)
+     CALL vector_square(N, x, z)
 #ifdef DEBUG
-     PRINT *, 'Square: ', x_square
-     PRINT *, '-------------------------------------------------------------------------------------------'
+     PRINT *, 'Square:                      ', z
+     PRINT *, '-----------------------------------------------------------------------------------------------------------------'
 #endif
 
      ! Calculate sum_of elements() function
      esum = sum_of_elements(N, x)
 #ifdef DEBUG
-     PRINT *, 'Sum of x elements: ', esum
-     PRINT *, '-------------------------------------------------------------------------------------------'
+     PRINT *, 'Sum of x elements:           ', esum
+     PRINT *, '-----------------------------------------------------------------------------------------------------------------'
 #endif
 
      ! Run  rmse()
@@ -87,36 +74,11 @@ IMPLICIT NONE
      PRINT *, '                                            rmse()                   '
      PRINT *, '                                              -                                            '
      rmse_result = rmse(N, x, y)
-     PRINT *, 'rmse_result: ', rmse_result
+     PRINT *, 'rmse_result:                 ', rmse_result
 #endif
 
 END PROGRAM assign06
 
-!---------------------------------------------------
-
-DOUBLE PRECISION FUNCTION scalar_sum(e, f)
-IMPLICIT NONE    
-
-    ! Returns the sum of scalar variables e and f.
-    ! It's obviously a stupid function, since it would be
-    ! easier to just do "e + f" rather than "scalar_sum(ef, f), 
-    ! but this demonstrates how to create and use a simple function
-
-    ! Declaration of subroutine arguments 
-    DOUBLE PRECISION :: e, f
-
-#ifdef DEBUG
-    PRINT *, 'scalar_sum() - e: ', e
-    PRINT *, 'scalar_sum() - f: ', f
-#endif
-
-    ! Need to place the result in a variable that has the name of the function
-    scalar_sum = e + f
-
-    ! This returns value of "scalar_sum" to calling routine
-    RETURN
-
-END FUNCTION scalar_sum
 !---------------------------------------------------
 
 DOUBLE PRECISION FUNCTION scalar_differ(e,f)
@@ -127,8 +89,8 @@ IMPLICIT NONE
         ! Declarations of subroutine arguments
         DOUBLE PRECISION :: e, f
 #ifdef DEBUG
-        PRINT *, 'scalar_differ() - e: ', e
-        PRINT *, 'scalar_differ() - f: ', f
+        PRINT *, 'scalar_differ()-e:          ', e
+        PRINT *, 'scalar_differ()-f:          ', f
 #endif
 
         scalar_differ = e - f
@@ -138,37 +100,7 @@ END FUNCTION scalar_differ
 
 !---------------------------------------------------
 
-SUBROUTINE pairwise_vector_sum(N, a, b, c)
-IMPLICIT NONE
 
-    ! Performs pairwise addition of elements in a and b, 
-    ! placing result in c.  
-
-    ! Declaration of subroutine arguments 
-    INTEGER :: N
-    DOUBLE PRECISION, DIMENSION(N) :: a, b, c
-
-    ! Declaration of local variables
-    INTEGER :: i
-
-    ! Need to make sure we declare any functions we use
-    ! within this program unit
-    DOUBLE PRECISION scalar_sum
-    
-#ifdef DEBUG
-    PRINT *, 'pairwise_vector_sum() - a: ', a
-    PRINT *, 'pairwise_vector_sum() - b: ', b
-#endif
-
-    DO i=1,N
-        ! There are a couple of ways to do this
-        ! c(i) = a(i) + b(i)
-        c(i) = scalar_sum( a(i), b(i) )
-    END DO
-
-END SUBROUTINE pairwise_vector_sum
-
-!---------------_------------------------------------
 
 SUBROUTINE pairwise_vector_diff(N, a, b, c)
 IMPLICIT NONE
@@ -187,8 +119,8 @@ IMPLICIT NONE
     DOUBLE PRECISION scalar_differ
 
 #ifdef DEBUG
-    PRINT *, 'pairwise_vector_diff() - a: ', a
-    PRINT *, 'pairwise_vector_diff() - b: ', b
+    PRINT *, 'pairwise_vector_diff()-a:   ', a
+    PRINT *, 'pairwise_vector_diff()-b:   ', b
 #endif
 
     DO i=1,N
@@ -213,7 +145,7 @@ IMPLICIT NONE
      INTEGER :: i
 
 #ifdef DEBUG
-     PRINT *, 'vector_square() - x: ', x
+     PRINT *, 'vector_square() - x:         ', x
 #endif
 
      DO i=1, N
@@ -236,10 +168,12 @@ IMPLICIT NONE
      DO i=1, N
         sum_of_elements = sum_of_elements + x(i)
      ENDDO
-
+#ifdef DEBUG
+     PRINT *, 'Inside sum_of_elements, sum: ', sum_of_elements
+#endif
      RETURN
 END FUNCTION sum_of_elements
-
+!-----------------------------------------------------
 DOUBLE PRECISION FUNCTION rmse(N, x, y)
 IMPLICIT NONE
      ! Returns the Root Mean Square Eror of
