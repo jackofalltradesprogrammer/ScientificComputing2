@@ -190,6 +190,10 @@ IMPLICIT NONE
      ! Call the SUBROUTINE vector_square
      CALL vector_square(N, xydiff, xysquare)
 
+#ifdef DEBUG
+     PRINT *, 'Square:                      ', xysquare
+#endif
+
      ! get the sum of element
      rmse = SQRT(sum_of_elements(N, xysquare)/N)
 
