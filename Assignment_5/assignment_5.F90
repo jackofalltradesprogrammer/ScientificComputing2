@@ -28,10 +28,10 @@ IMPLICIT NONE
    CALL thomas_fdm1d(N, L, INITIAL_VALUE, LEFT_BC, RIGHT_BC, &
 &                      C, RHO, DELTA_T, TN)
 
-!     PRINT *, '-------------------------'
-!     PRINT *, 'Tridiagonal, DGTSV'
-!     CALL dgtsv_fdm1d(N, L, INITIAL_VALUE, LEFT_BC, RIGHT_BC, &
-! &                      C, RHO, DELTA_T, TN)
+   PRINT *, '-------------------------'
+   PRINT *, 'Tridiagonal, DGTSV'
+   CALL dgtsv_fdm1d(N, L, INITIAL_VALUE, LEFT_BC, RIGHT_BC, &
+&                      C, RHO, DELTA_T, TN)
 
 
 END PROGRAM fdmplay
