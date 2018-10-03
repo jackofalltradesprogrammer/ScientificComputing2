@@ -4,7 +4,7 @@ DOUBLE PRECISION FUNCTION myfunc(x)
 IMPLICIT NONE
 
 	DOUBLE PRECISION :: x
-	myfunc = x*x
+	myfunc=SQRT(EXP(ABS(COS(x**x)-SIN(x**x))/SQRT(1.0+ATAN(x**x)) ))
 	RETURN
 
 END FUNCTION myfunc
