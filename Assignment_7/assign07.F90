@@ -4,7 +4,13 @@ DOUBLE PRECISION FUNCTION myfunc(x)
 IMPLICIT NONE
 
 	DOUBLE PRECISION :: x
-	myfunc=SQRT(EXP(ABS(COS(x**x)-SIN(x**x))/SQRT(1.0+ATAN(x**x)) ))
+	myfunc=SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x))))
+	RETURN
+	RETURN
+	RETURN
 	RETURN
 
 END FUNCTION myfunc
@@ -77,6 +83,7 @@ IMPLICIT NONE
 	DO i=1, INT(MyN)
 		localSum = localSum + myfunc(MyX)*DeltaX
 		MyX = MyX + DeltaX
+!		PRINT *, "RUNNING ", i
 	END DO
 
 #ifdef DEBUG
