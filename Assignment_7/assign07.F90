@@ -4,8 +4,66 @@ DOUBLE PRECISION FUNCTION myfunc(x)
 IMPLICIT NONE
 
 	DOUBLE PRECISION :: x
-	!myfunc=SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) 
-	myfunc = x*x
+	myfunc=SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x)))) &
+	      **SQRT(EXP(EXP((COS(x**x)**98654)-SIN(x**x))/TAN(1.0+ATAN(x**x))))**SQRT(EXP(EXP(COS(x**x)-SIN(x**x))/TAN(1.0+ATAN(x**x))))  
 	RETURN
 	
 
@@ -22,12 +80,13 @@ IMPLICIT NONE
 	DOUBLE PRECISION, ALLOCATABLE, DIMENSION(:) :: NXoXnArray
 	DOUBLE PRECISION :: myfunc, DeltaX, MyX, localSum, globalSum, Xo, Xn, N, MyN
 	INTEGER :: i
-	REAL  :: start_clock, stop_clock
+	DOUBLE PRECISION :: start_clock, stop_clock
 
 !	start_clock = 0
 !	stop_clock = 0
-
-	start_clock = MPI_WTIME()
+	IF (my_pe == 0) THEN
+		start_clock = MPI_WTIME()
+	ENDIF
 
 #ifdef DEBUG
 	PRINT *, "START TIME IS ", start_clock
@@ -96,9 +155,9 @@ IMPLICIT NONE
 
 	IF (my_pe == 0) THEN
 		PRINT *, "Global Sum is ", globalSum
-	stop_clock = MPI_WTIME()
-	PRINT *, "Stop time: ", stop_clock
-	PRINT *, "Wall time:  ", stop_clock-start_clock
+		stop_clock = MPI_WTIME()
+		PRINT *, "Stop time: ", stop_clock
+		PRINT *, "Wall time:  ", stop_clock-start_clock
 	ENDIF
 
 	! Get this tast out of the MPI environment
