@@ -1,4 +1,3 @@
-
 ! Define the function
 DOUBLE PRECISION FUNCTION myfunc(x)
 IMPLICIT NONE
